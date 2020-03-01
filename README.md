@@ -38,6 +38,8 @@ NVMeFix, ThunderboltReset and SMCAMDProcessor are useful for adjusting the funct
 
 Two other kext files are included: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT and the latter for PCIeBT. The default within the config.plist file is for PCIeBT, not SBT. In parallel to these are the two ACPI aml files SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the latter is the default and enabled (and the former is disbled) in the config.plist file. Together, the PCIeBt disable the internal Intel BT device (removing it's USB power supply) to as not to interfere with the PCIe BT add-on card, which should be at slot-5.
 
+The Images folder contains a JPG of the main mobo layout including the slot descriptions. The other image shows the USB layout of the X570 Creator motherboard.
+
 
 ### Drivers
 
