@@ -23,13 +23,13 @@ The Driver and Kext folders can be updated outside this commmit by running OCBui
 
 Presently, TB3 while working, is still incomplete. Check discusson sites listed below. 
 
-##Usage
+## Usage
  
 - To build OpenCore using Pavo's OCBuilder. It is recommended to use the Release version.
 - Move included folders for ACPI, Drivers, Kexts and config.plist files into EFI/OC folder created by OCBuilder
 - Final EFI folder should have a structure as shown below (OC v056).
 
-##EFI Folder
+## EFI Folder
 
        EFI----Boot----Bootx64.efi
         |
