@@ -82,5 +82,6 @@ Presently, TB3 while working, is still incomplete. Check discusson sites listed 
 - [Andrey1970AppleLife](https://github.com/Andrey1970AppleLife)
 - [AMD OS X](https://github.com/AMD-OSX/AMD_Vanilla/tree/master)
 - [Download-Fritz](https://github.com/Download-Fritz) for OpenCore
+- [Pavo](https://github.com/Pavo-IM) for OCBuilder and AGPMInjector
 - [trulyspinach](https://github.com/trulyspinach/SMCAMDProcessor) for CPU Temp/Freq monitoring
 - [vit9696](https://github.com/vit9696) for OpenCore and many of the kexts we use
