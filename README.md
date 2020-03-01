@@ -18,8 +18,14 @@ config-Only-For-Storage.plist files. These need to be placed into an EFI folder 
 of the boot drive.
 
 The Driver and Kext folders can be updated outside this commmit by running OCBuilder and transferring the
-    appropriate, newly udpated files to their respective folders.
+    appropriate, newly udpated files to their respective folders. 
+    
+The contents of the Kexts folder can be broken down into various groups. First are the AGPMInjector kexts (created by
+Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). Here is provided several variations to save 
+time based on commonly used GPUs. These should be paired with similarly named files within the ACPI folder and each should
+be enabled within the config.plist file as required. Example: selected AGPMInjector-iMacPro1,1-RX580.kext and SSDT-X570-RX580-slot-1.aml as pairs, ensuring both are entered in the proper sections of the config.plist file and that both are enabled.
 
+Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described here https://forum.amd-osx.com/viewtopic.php?p=53060#p53060), you'll want all of these enabled within the config.plist file. If you've added a PCIe BT/WiFi card, then most of these are optional. Other files will vary whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). These changes will be described below.
 
 Presently, TB3 while working, is still incomplete. Check discusson sites listed below. 
 
