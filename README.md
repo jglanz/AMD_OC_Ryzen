@@ -1,7 +1,8 @@
 # AMD_OC_Ryzen
 
 This commit provides the basic contents for an EFI folder to successfully boot an ASRock X570 Creator motherboard,
-using a Ryzen 9 CPU such as a 3950X.
+using a Ryzen 9 CPU such as a 3950X. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1,
+although provisions are available for running MacPro7,1.
 
 There are notable dependencies on OpenCore, the suggested bootloader. OpenCore is best updated via Pavo's OCBuilder app
 (https://github.com/Pavo-IM/ocbuilder/releases). Accordingly, specific files compiled during an OC build will not be 
@@ -12,13 +13,23 @@ how to optimize your sysstem and so forth, please see AMD-OSX/AMD-Vanilla reposi
 https://github.com/AMD-OSX/AMD_Vanilla/tree/master. This repository will not go into such details, but rather
 will attempt to keep an up-to-date EFI that works on an established computer.
 
+This repository only contains the ACPI, Driver and Kexts folders along with the config.plist and 
+config-Only-For-Storage.plist files. These need to be placed into an EFI folder which is located on the EFI partition
+of the boot drive.
+
+The Driver and Kext folders can be updated outside this commmit by running OCBuilder and transferring the
+    appropriate, newly udpated files to their respective folders.
+
+
 Presently, TB3 while working, is still incomplete. Check discusson sites listed below. 
 
-##Usage:
+##Usage
  
 - To build OpenCore using Pavo's OCBuilder. It is recommended to use the Release version.
 - Move included folders for ACPI, Drivers, Kexts and config.plist files into EFI/OC folder created by OCBuilder
-- Final EFI folder should have a structure like this (as of OC version 056:
+- Final EFI folder should have a structure as shown below (OC v056).
+
+##EFI Folder
 
        EFI----Boot----Bootx64.efi
         |
@@ -56,12 +67,7 @@ Presently, TB3 while working, is still incomplete. Check discusson sites listed 
                        |
                        |_____LogoutHook
                       
-                      
- -This commit contains only the ACPI, Driver and Kexts folders along with the config.plist and config-Only-For-Storage.plist
-    files.
- -Once in use, the Driver and Kext folders can be updated outside this commmit by running OCBuilder and transferring the
-    appropriate, newly udpated files to their respective folders.
-    
+                          
     
 
 ## Discussion
@@ -72,9 +78,9 @@ Presently, TB3 while working, is still incomplete. Check discusson sites listed 
 
 ## Credits
 
-- [AlGrey] (https://github.com/AlGreyy)for the idea and creating the patches
+- [AlGrey](https://github.com/AlGreyy) for the idea and creating the patches
 - [Andrey1970AppleLife](https://github.com/Andrey1970AppleLife)
 - [AMD OS X](https://github.com/AMD-OSX/AMD_Vanilla/tree/master)
-- [Download-Fritz](https://github.com/Download-Fritz)for OpenCore
-- [trulyspinach](https://github.com/trulyspinach/SMCAMDProcessor)for CPU Temp/Freq monitoring
-- [vit9696](https://github.com/vit9696)for OpenCore and many of the kexts we use
+- [Download-Fritz](https://github.com/Download-Fritz) for OpenCore
+- [trulyspinach](https://github.com/trulyspinach/SMCAMDProcessor) for CPU Temp/Freq monitoring
+- [vit9696](https://github.com/vit9696) for OpenCore and many of the kexts we use
