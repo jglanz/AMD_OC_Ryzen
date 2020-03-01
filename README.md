@@ -20,9 +20,10 @@ The Driver and Kext folders can be updated outside this commmit by running OCBui
 
 ### ACPI
 
-(incomplete; to be completed)
+The first few files, those without a "-X570- prefix, are for setting up AGPM injector, and EC with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the -NVMe- and -AQC107 files adjust the device names and correct internal drives appearing as external icons. THe -BXBR and -GP13 rename the USB devices. The GPU SSDT primarily provide correct renaming and nice displays of the drivers within SystemInformaion/PCI on the Mac, but a few adjust the functioning of the PowerTables (Vega 56 and 64).
 
-Presently, TB3 while working, is still incomplete (the TB deice must be connected before boot and there is no hot-plug capability). Check discusson sites listed below. Hopefully, the only update required to make TB3 fully functional will be an more complete SSDT-TB file than the one presently being used.
+The SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB deice must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be an more complete SSDT-TB file than the one presently being used.
+
 
 ### Kexts
 The contents of the Kexts folder can be broken down into various groups. First are the AGPMInjector kexts (created by
@@ -52,7 +53,8 @@ VirtualSMC.efi is now part of OC. It, along with other settings in the config.pl
  
 - To build OpenCore using Pavo's OCBuilder. It is recommended to use the Release version.
 - Move included folders for ACPI, Drivers, Kexts and the plist files into EFI/OC folder created by OCBuilder
-- NOTE: the config.plist file does not contain SNs but place-holders that say "FILL-IN". You must supply these values on         your own.
+- NOTE: the config.plist file does not contain SNs but place-holders that say "FILL-IN". You must supply these values on
+        your own (here, a copy of Clover can be useful for deriving un-used SNs and UUIDs.
 - Final EFI folder should have a structure as shown below (OC v056 as of 3/1/2020).
 
 ## EFI Folder
