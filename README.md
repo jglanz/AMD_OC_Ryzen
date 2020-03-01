@@ -20,7 +20,7 @@ The Driver and Kext folders can be updated outside this commmit by running OCBui
 
 ### ACPI
 
-
+(incomplete; to be completed)
 
 Presently, TB3 while working, is still incomplete (the TB deice must be connected before boot and there is no hot-plug capability). Check discusson sites listed below. Hopefully, the only update required to make TB3 fully functional will be an more complete SSDT-TB file than the one presently being used.
 
@@ -34,11 +34,14 @@ Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFi
 
 The other grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). MacProMemoryNotificationDisabler is required for SMBIOS MacPro7,1. Within the config.plist file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. WEG should be present before other graphics related kext files.
 
+NVMeFix, ThunderboltReset and SMCAMDProcessor are useful for adjusting the functioning of NVMe drives, setting up the power for TB3 and providing CPU temperature and frequency information. ACPIDebug (and the companion SSDT-RMDT.aml file will only be used to debug and trouble shoot TB3 SSDTs at a future date (they are both disabled and maybe deleted at your choice).
 
+Two other kext files are included: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT and the latter for PCIeBT. The default within the config.plist file is for PCIeBT, not SBT. In parallel to these are the two ACPI aml files SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the latter is the default and enabled (and the former is disbled) in the config.plist file. Together, the PCIeBt disable the internal Intel BT device (removing it's USB power supply) to as not to interfere with the PCIe BT add-on card, which should be at slot-5.
 
 
 ### Drivers
 
+Only a few drivers are needed with OC: ApfsDriverLoader, HSSPlus and FwRuntimeServices are required. AudioDxe is only needed if BootChime or other newly introduced audio features in OC are desired. The associated OC/Resources/Audio folder with the included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There many other WAV files in the Audio folder when you compile it, totally over 90MB. This can be too large for some EFI partitions, so all but the bare essentials are included in this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.)
 
 
 ## Usage
