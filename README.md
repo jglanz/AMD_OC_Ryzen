@@ -1,6 +1,6 @@
 # AMD_OC_Ryzen
 
-This commit provides the basic contents for an EFI folder to successfully boot an ASRock X570 Creator motherboard,
+This repository provides the basic contents for an EFI folder to successfully boot an ASRock X570 Creator motherboard,
 using a Ryzen 9 CPU such as a 3950X. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1,
 although provisions are available for running MacPro7,1, which will be described below.
 
