@@ -55,6 +55,14 @@ VirtualSMC.efi is now part of OC. It, along with other settings in the config.pl
 - Move included folders for ACPI, Drivers, Kexts and the plist files into EFI/OC folder created by OCBuilder
 - NOTE: the config.plist file does not contain SNs but place-holders that say "FILL-IN". You must supply these values on
         your own (here, a copy of Clover can be useful for deriving un-used SNs and UUIDs.
+- There is a file named config-Only-For-Storage.plist. This file stores data that can be copy and pasted to the main
+        config.plist file. For example, inside is an entry "PlatformInfo-MacPro7,1". With both files open, you can high- 
+        light and copy this section from the storage file to your config.plist file, pasting immediately below your current
+        PlatformInfo section. You can then remove the original PlatformInfo, replacing it with PlatformInfo-MacPro7,1. Then
+        rename PlatformInfo-MacPro7,1 as PlatformInfo. Next, provide new SNs and UUID values for this section. (Alternately,
+        you can enter SNs and UUIDs into the storage portion and keep sets of SN-entered PlatformInfo sections ready for
+        either iMacPro1,1 or MacPro7,1, switching as needed with little effort. Other items stored are DeviceProperties
+        for swapped or PCIe BT modules. These are all present for convenience; they are not required. 
 - Final EFI folder should have a structure as shown below (OC v056 as of 3/1/2020).
 
 ## EFI Folder
