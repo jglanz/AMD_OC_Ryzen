@@ -181,7 +181,9 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
 
 ### D) Discussion
 
-- [forum.amd-osx](https://forum.amd-osx.com/viewtopic.php?f=35&t=9645) especially for TB3 updates
+- [X570 Creator](https://forum.amd-osx.com/viewtopic.php?f=35&t=9645) for AMD TB3 updates
+- [OpenCore Discussion](https://www.insanelymac.com/forum/topic/338516-opencore-discussion/?page=1) for general OC issues
+- [NDK Customized OC Menu](https://www.insanelymac.com/forum/topic/341402-customized-opencore-with-additional-features/) for NDK OC menu issues
 
 
 ### Credits
@@ -191,6 +193,7 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
 - [CaseySJ](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/) for tireless work and ingenuity in TB decoding
 - [Download-Fritz](https://github.com/Download-Fritz) for OpenCore
 - [khronokernel](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) for a great OC guidebook
+- [NDK OC Menu](https://github.com/n-d-k/NdkBootPicker) for NDKBootPicker Menu for OC
 - [Pavo](https://github.com/Pavo-IM) for OCBuilder and AGPMInjector
 - [trulyspinach](https://github.com/trulyspinach/SMCAMDProcessor) for CPU Temp/Freq monitoring
 - [vit9696](https://github.com/vit9696) for OpenCore and many of the kexts we use
