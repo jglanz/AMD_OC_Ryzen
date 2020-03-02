@@ -139,6 +139,7 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
 - Move included folders for ACPI, Drivers, Kexts and the plist files into EFI/OC folder created by OCBuilder
 - NOTE: the config.plist file does not contain SNs but place-holders that say "FILL-IN". You must supply these values on
         your own (here, a copy of Clover can be useful for deriving un-used SNs and UUIDs.
+- Again, editing of config.plist files should only be done with PlistEdit Pro, Xcode or ProperTree (see Credits section for link).
 - There is a file named config-Only-For-Storage.plist. This file stores data that can be copy and pasted to the main
         config.plist file. For example, inside is an entry "PlatformInfo-MacPro7,1". With both files open, you can high- 
         light and copy this section from the storage file to your config.plist file, pasting immediately below your current
@@ -211,5 +212,6 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
 - [khronokernel](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) for a great OC guidebook
 - [NDK OC Menu](https://github.com/n-d-k/NdkBootPicker) for NDKBootPicker Menu for OC
 - [Pavo](https://github.com/Pavo-IM) for OCBuilder and AGPMInjector
+- [CorpNewt](https://github.com/corpnewt/ProperTree) for many things including ProperTree editor
 - [trulyspinach](https://github.com/trulyspinach/SMCAMDProcessor) for CPU Temp/Freq monitoring
 - [vit9696](https://github.com/vit9696) for OpenCore and many of the kexts we use
