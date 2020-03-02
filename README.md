@@ -4,17 +4,18 @@ This repository provides the basic contents for an EFI folder to successfully bo
 using a Ryzen 9 CPU such as a 3950X. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1,
 although provisions are available for running MacPro7,1, which will be described below.
 
-There are notable dependencies on OpenCore, the suggested bootloader. OpenCore is best updated via Pavo's OCBuilder app
+This repository is only designed for the OpenCore bootloader. OpenCore is best updated via Pavo's OCBuilder app
 (https://github.com/Pavo-IM/ocbuilder/releases). Accordingly, specific files compiled during an OC build will not be 
-necessarily updated in this repository, but will be temporarily present to fascilitate creation of an EFI folder (v056 as of 3/1/2020).
+necessarily updated in this repository, but will be temporarily present to fascilitate creation of an EFI folder
+(v056 as of 3/1/2020).
 
-This repository will attempt to keep an up-to-date basics of an EFI that will work on an established computer. For details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your sysstem and so forth, please see the AMD-OSX/AMD-Vanilla repository at https://github.com/AMD-OSX/AMD_Vanilla/tree/master and https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/ for loads of details.
+This repository will attempt to keep an up-to-date basics (ACPI and Kexts) of an EFI folder that will work on an established computer. For details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your sysstem and so forth, please see the AMD-OSX/AMD-Vanilla repository at https://github.com/AMD-OSX/AMD_Vanilla/tree/master and https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/ for loads of details.
 
-This repository will maintain the ACPI, Driver and Kexts folders along with the config.plist and 
+This repository will maintain the ACPI and Kexts folders along with the config.plist and 
 config-Only-For-Storage.plist files. These need to be placed into an EFI folder which is located on the EFI partition
-of the boot drive (see structure below).
+of the boot drive (see Usage and Structure information below).
 
-The Driver and Kext folders can be updated outside this commmit by running OCBuilder and transferring the appropriate, newly udpated files to their respective folders. If updated, please study the Docs to see if the structure of the config.plist file has changed. OpenCore is evolving and consequently new versions can substantially effect the overall structure and functioning of the config.plist file.
+The Driver and Kext folders can have some of their components updated outside this repository by running OCBuilder and transferring the appropriate, newly udpated files to their respective folders. If updated, please study the Docs to see if the structure of the config.plist file has changed. OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the config.plist file.
     
 ### A) Contents
 
@@ -40,7 +41,9 @@ The other grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, 
 
 NVMeFix (https://github.com/acidanthera/NVMeFix), ThunderboltReset (https://github.com/osy86/ThunderboltReset) and SMCAMDProcessor (https://github.com/trulyspinach/SMCAMDProcessor) are useful for adjusting the functioning of NVMe drives, setting up the power for TB3 and providing CPU temperature and frequency information. ACPIDebug (and the companion SSDT-RMDT.aml file will only be used to debug and trouble shoot TB3 SSDTs at a future date (they are both disabled and maybe deleted at your choice).
 
-Two other kext files are included: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT and the latter for PCIeBT. The default within the config.plist file is for PCIeBT, not SBT. In parallel to these are the two ACPI aml files SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the latter is the default and enabled (and the former is disbled) in the config.plist file. Together, the PCIeBt disable the internal Intel BT device (removing it's USB power supply) to as not to interfere with the PCIe BT add-on card, which should be at slot-5.
+The above kext files may be updated independent of this repository using Hackintool, Kext Updater or OCBuilder.
+
+Two other kext files are included: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. These files inject the proper USB ports. (These file are not to be updated by outside apps.) The former is for SBT and the latter for PCIeBT. The default within the config.plist file is for PCIeBT, not SBT. In parallel to these are the two ACPI aml files SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the latter is the default and enabled (and the former is disbled) in the config.plist file. Together, the PCIeBt disable the internal Intel BT device (removing it's USB power supply) to as not to interfere with the PCIe BT add-on card, which should be at slot-5.
 
 The Images folder contains a JPG of the main mobo layout including the slot descriptions. The other image shows the USB layout of the X570 Creator motherboard.
 
