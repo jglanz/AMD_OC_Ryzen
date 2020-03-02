@@ -1,4 +1,4 @@
-# AMD_OC_Ryzen
+# OpenCore EFI for ASRock X570 Creator
 
 This repository provides the basic contents for an EFI folder to successfully boot an ASRock X570 Creator motherboard,
 using a Ryzen 9 CPU such as a 3950X. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1,
@@ -16,22 +16,24 @@ of the boot drive (see structure below).
 
 The Driver and Kext folders can be updated outside this commmit by running OCBuilder and transferring the appropriate, newly udpated files to their respective folders. If updated, please study the Docs to see if the structure of the config.plist file has changed. OpenCore is evolving and consequently new versions can substantially effect the overall structure and functioning of the config.plist file.
     
-## Contents
+## A) Contents
 
-### ACPI
+### 1 ACPI
 
 The first few files, those without a "-X570- prefix, are for setting up AGPM injector, and EC with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the -NVMe- and -AQC107 files adjust the device names and correct internal drives appearing as external icons. THe -BXBR and -GP13 rename the USB devices. The GPU SSDT primarily provide correct renaming and nice displays of the drivers within SystemInformaion/PCI on the Mac, but a few adjust the functioning of the PowerTables (Vega 56 and 64).
+
+The other two NVMe files listed as GPP0-ANS3 and GPP2-ANS3 are described below in section A5.
 
 The SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB deice must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be an more complete SSDT-TB file than the one presently being used.
 
 
-### Kexts
+### 2 Kexts
 The contents of the Kexts folder can be broken down into various groups. First are the AGPMInjector kexts (created by
 Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). Here is provided several variations to save 
 time based on commonly used GPUs. These should be paired with similarly named files within the ACPI folder and each should
 be enabled within the config.plist file as required. Example: selected AGPMInjector-iMacPro1,1-RX580.kext and SSDT-X570-RX580-slot-1.aml as pairs, ensuring both are entered in the proper sections of the config.plist file and that both are enabled.
 
-Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described here https://forum.amd-osx.com/viewtopic.php?p=53060#p53060), you'll want all of these enabled within the config.plist file. If you've added a PCIe BT/WiFi card, then most of these are optional. Other files will vary whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). These changes will be described below.
+Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described here https://forum.amd-osx.com/viewtopic.php?p=53060#p53060), you'll want all of these enabled within the config.plist file. If you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (which has a Broadcom 94360CD), then most of these are optional. Other files will vary whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). These changes will be described below.
 
 The other grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). MacProMemoryNotificationDisabler is required for SMBIOS MacPro7,1. Within the config.plist file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. WEG should be present before other graphics related kext files.
 
@@ -42,14 +44,62 @@ Two other kext files are included: USBPorts-X570-ASRock-CR and USBPorts-X570-ASR
 The Images folder contains a JPG of the main mobo layout including the slot descriptions. The other image shows the USB layout of the X570 Creator motherboard.
 
 
-### Drivers
+### 3 BT Settings
+
+To clarify the above description, the 2 sets hinted at above (you need to enable one, not both, within OpenCore):
+
+SET 1. SBT - Internal swapped BT, enable following (but disable those in SET 2):
+A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC.aml
+B. USBPorts-X570-ASRock-CR.kext
+
+SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
+A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT.aml
+B. USBPorts-X570-ASRock-CR-PCIe_BT.kext
+
+
+### 4 Drivers
 
 Only a few drivers are needed with OC: ApfsDriverLoader, HSSPlus and FwRuntimeServices are required. AudioDxe is only needed if BootChime or other newly introduced audio features in OC are desired. The associated OC/Resources/Audio folder with the included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There many other WAV files in the Audio folder when you compile it, totally over 90MB. This can be too large for some EFI partitions, so all but the bare essentials are included in this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.)
 
 VirtualSMC.efi is now part of OC. It, along with other settings in the config.plist file are required if you choose to use FileVault. This repository does not use FileVault and so those settings and other efi files are not included.
 
 
-## Usage
+### 5 Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
+
+If the PCIe slot 6 is populated with an NVMe SSD in a PCIe adapter and if TB is enabled, the M2_2 drive will disappear from BIOS, which means the M2_2 drive is not available for booting. If the PCIe6 slot is empt and TB is still left enabled, the M2_2 SSD will be present in BIOS, and thus bootable. (See the included image of the motherboard: the M2_1 slot is closest to the CPU, while the M2_2 slot is farthest (and under the fan/shroud heatsink).
+
+The problem is not just an ASRock issue, but can be found on MSI and ASUS forums, where people complain of 'disappearing' M2_2 drives. The problem lies with the X570 chip and how the PCIe and M2_2 slots are shared (lane sharing). While the M2_2 slot can disappear from BIOS, preventing booting from the drive in this slot, the drive will appear in the Finder and be available for reading and writing.
+
+Meanwhile, the PCIe1 slot is direct from the cpu and only has issues if another GPU is placed in PCIe4 (PCIe1 goes from x16 to x8 when PCIe4 contains a GPU).
+
+To summarize:
+
++ PCIe6 + TB enabled  --->  no M2_2 in BIOS
+- PCIe6 + TB enabled  --->  M2_2 will appear in BIOS
++ PCIe6 + TB disabled --->  M2_2 will appear in BIOS
+- PCIe6 + TB disabled --->  M2_2 will appear in BIOS
+
+One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot device is assigned to GGP2. However, if TB is disabled, teh M2_1 slot is assigned to GPP0. This is reflected in the two SSDT aml files known as SSDT-X570-NVMe-GPP0-ANS3-noTB.aml and SSDT-X570-NVMe-GPP2-ANS3+TB.aml. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
+
+
+### 6 BIOS ROM
+
+Working within a PC environment means using BIOS and the manufacturer's typcial boot methods as expected. However, if we'd like a more Mac-like flavor, how about changing the usual boot message from the manufacturer to a more Mac-like experience? This can be done through a modified BIOS. The downloadable BIOS is the latest v2.10 but instead of the ASRock logo, it features an Apple logo image. Of course, you then need to follow the X570 Creator manual in flashing this BIOS to the mobo. If you stored any settings for v2.10 on a drive, you can re-load these settings once you've flashed this BIOS. If you didn't save your settings externally, you'll have to re-enter all of your settings again: so prepare things ahead of time to make flashing easier. (When you flash a newer version of BIOS, settings cannot be re-loaded, but going within a version, you can re-load settings.)
+
+
+
+
+### 7 BIOS Settings
+
+(to be completed)
+
+TB                  enabled
+TB Security         disabled
+CSM                 disabled
+Above 4G decoding   enabled
+
+
+## B) Usage
  
 - To build OpenCore using Pavo's OCBuilder. It is recommended to use the Release version.
 - Move included folders for ACPI, Drivers, Kexts and the plist files into EFI/OC folder created by OCBuilder
@@ -65,7 +115,7 @@ VirtualSMC.efi is now part of OC. It, along with other settings in the config.pl
         for swapped or PCIe BT modules. These are all present for convenience; they are not required. 
 - Final EFI folder should have a structure as shown below (OC v056 as of 3/1/2020).
 
-## EFI Folder
+## C) EFI Folder
 
        EFI----Boot----Bootx64.efi
         |
@@ -106,7 +156,7 @@ VirtualSMC.efi is now part of OC. It, along with other settings in the config.pl
                           
     
 
-## Discussion
+## D) Discussion
 
 - [forum.amd-osx](https://forum.amd-osx.com/viewtopic.php?f=35&t=9645) especially for TB3 updates
 
