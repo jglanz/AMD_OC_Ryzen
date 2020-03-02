@@ -13,7 +13,7 @@ This repository will attempt to keep an up-to-date basics (ACPI and Kexts) of an
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
-While the external menu by NDK is noted at the bottom of this page, this repository will not use it nor provide sample files. It is entirely optional and not necessary for OC functionality. Please refer the Discussion section below if you are interested in this external menu system.
+While the external menu by NDK is noted at the bottom of this page, this repository will not use it nor provide sample files. It is entirely optional and not necessary for OC functionality. Please refer to the Discussion section D below if you are interested in this external menu system.
 
 
 ### A) Contents
