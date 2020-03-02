@@ -85,7 +85,9 @@ One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot 
 
 #### 6 BIOS ROM
 
-Working within a PC environment means using BIOS and the manufacturer's typcial boot methods as expected. However, if we'd like a more Mac-like flavor, how about changing the usual boot message from the manufacturer to a more Mac-like experience? This can be done through a modified BIOS. The downloadable BIOS (X570CTR2-10-mod.rom.zip) is the latest v2.10 but instead of the ASRock logo, it features an Apple logo image. 
+Working within a PC environment means using BIOS and the manufacturer's typcial boot methods as expected. However, if we'd like a more Mac-like flavor, how about changing the usual boot message from the manufacturer to a more Mac-like experience? This can be done through a modified BIOS. The downloadable BIOS (X570CTR2-10-mod.rom.zip) is the latest v2.10 but instead of the ASRock logo, it displays an Apple inspired logo. 
+
+![Test Image 1](AppleLogo_small.jpg)
 
 Of course, you then need to follow the X570 Creator manual in flashing this BIOS to the mobo. If you stored any settings for v2.10 on a drive, you can re-load these settings once you've flashed this BIOS. If you didn't save your settings externally, you'll have to re-enter all of your settings again: so prepare things ahead of time to make flashing easier. (When you flash a newer version of BIOS, settings cannot be re-loaded, but going within a version, you can re-load settings.)
 
