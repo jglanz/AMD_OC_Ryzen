@@ -4,7 +4,7 @@ This repository provides the basic contents for an EFI folder to successfully bo
 using a Ryzen 9 CPU such as a 3950X. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1
 although provisions are available for running MacPro7,1 which will be described below.
 
-This repository is only designed for OpenCore bootloader. OpenCore is best updated via Pavo's OCBuilder app
+This repository is only designed for OpenCore bootloader. OpenCore (OC) is best updated via Pavo's OCBuilder app
 (https://github.com/Pavo-IM/ocbuilder/releases). Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the config.plist file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used config.plist file.
 
 The present EFI folder is accurate as of 3/1/2020, v056. Since the same version number can exist over a brief period of time until the final released version of that same number, it is best to reference a date with respect to the version being discussed.
@@ -12,6 +12,8 @@ The present EFI folder is accurate as of 3/1/2020, v056. Since the same version 
 This repository will attempt to keep an up-to-date basics (ACPI and Kexts) of an EFI folder that will work on an established computer. However, for details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your system and other related matters, please see the AMD-OSX/AMD-Vanilla repository at https://github.com/AMD-OSX/AMD_Vanilla/tree/master and in particular, https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/ for loads of helpful details.
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
+
+While the external menu by NDK is noted at the bottom of this page, this repository will not use it nor provide sample files. It is entirely optional and not necessary for OC functionality. Please refer the Discussion section below if you are interested in this external menu system.
 
 
 ### A) Contents
