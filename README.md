@@ -79,7 +79,7 @@ Kernel section:
 
 Only a few drivers are needed with OC: ApfsDriverLoader, HSSPlus and FwRuntimeServices are required. AudioDxe is only needed if BootChime or other newly introduced audio features in OC are desired. The associated OC/Resources/Audio folder with the included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There many other WAV files in the Audio folder when you compile it, totally over 90MB. This can be too large for some EFI partitions, so all but the bare essentials are included in this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.)
 
-VirtualSMC.efi is now part of OC. It, along with other settings in the config.plist file are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any assciated efi files will be neither discussed nor included.
+VirtualSMC.efi is now part of OC. It, along with other settings in the config.plist file are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated efi files will be neither discussed nor included.
 
 
 #### 5 Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
