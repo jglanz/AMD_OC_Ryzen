@@ -56,13 +56,15 @@ To clarify the above description, the 2 sets hinted at above (you need to enable
 
 SET 1. SBT - Internal swapped BT, enable following (but disable those in SET 2):
 
-A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC.aml
-B. USBPorts-X570-ASRock-CR.kext
+    A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC.aml
+
+    B. USBPorts-X570-ASRock-CR.kext
 
 SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
 
-A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT.aml
-B. USBPorts-X570-ASRock-CR-PCIe_BT.kext
+    A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT.aml
+
+    B. USBPorts-X570-ASRock-CR-PCIe_BT.kext
 
 
 #### 4 Drivers
