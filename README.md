@@ -99,12 +99,15 @@ Of course, you then need to follow the X570 Creator manual in flashing this BIOS
 
 If you load the included file, Auto+TB-CSM.bin, from within BIOS v2.10 (see motherboard manual on how to do this), you will have the stock settings. The Auto portion refers to the fact that XMP has not been set, but left at Auto. Do note that this v2.10 settings file has manually reduced fan speeds; please adjust as necessary.
 
-Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes were set to Gen3. This is reportedly better for maxmizing performance for currently available GPUs. Feel free to experience with this setting vs Auto.
+Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes were set to Gen3. Reportedly the Gen3 setting is better for maxmizing performance for currently available GPUs. Feel free to experience with this setting vs Auto.
 
-- TB                 =  Enabled
-- Security Level     =  No Security
-- CSM                =  Disabled
-- Above 4G decoding  =  Enabled
+
+|                    |              |
+| ------------------ | ------------ |
+| TB                 |  Enabled     |
+| Security Level     |  No Security |
+| CSM                |  Disabled    |
+| Above 4G decoding  |  Enabled     |
 
 
 #### 8 SMBIOS - How to Easily Update in OC
