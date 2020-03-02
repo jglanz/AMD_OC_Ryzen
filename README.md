@@ -27,7 +27,7 @@ The first few files, those without a "-X570- prefix, are for setting up AGPM inj
 
 The other two NVMe files listed as GPP0-ANS3 and GPP2-ANS3 are described below in section A5.
 
-The SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB deice must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be an more complete SSDT-TB file than the one presently being used.
+The SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used.
 
 
 #### 2 Kexts
