@@ -65,6 +65,11 @@ SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
     A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT.aml
 
     B. USBPorts-X570-ASRock-CR-PCIe_BT.kext
+    
+The images below show the 2 sections, the ACPI and the Kexts sections, in the config.plist file where these files are to be enabled or disabled.
+    
+    ![Test Image 4](Images/ACPI-X570X-USB-BT.jpg)
+    ![Test Image 5](Images/USBPorts-X570.jpg)
 
 
 #### 4 Drivers
