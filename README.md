@@ -192,6 +192,8 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
 - [AMD OS X](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) for AMD related information
 - [CaseySJ](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/) for tireless work and ingenuity in TB decoding
 - [Download-Fritz](https://github.com/Download-Fritz) for OpenCore
+- [Hackintool](https://www.insanelymac.com/forum/topic/335018-hackintool-v286/) for Hackintool utility
+- [Kext Updater](https://bitbucket.org/profdrluigi/kextupdater/downloads/) for Kext Updater utility
 - [khronokernel](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) for a great OC guidebook
 - [NDK OC Menu](https://github.com/n-d-k/NdkBootPicker) for NDKBootPicker Menu for OC
 - [Pavo](https://github.com/Pavo-IM) for OCBuilder and AGPMInjector
