@@ -1,8 +1,8 @@
 # OpenCore EFI for ASRock X570 Creator
 
 This repository provides the basic contents for an EFI folder to successfully boot an ASRock X570 Creator motherboard,
-using a Ryzen 9 CPU such as a 3950X. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1,
-although provisions are available for running MacPro7,1, which will be described below.
+using a Ryzen 9 CPU such as a 3950X. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1
+although provisions are available for running MacPro7,1 which will be described below.
 
 This repository is only designed for OpenCore bootloader. OpenCore is best updated via Pavo's OCBuilder app
 (https://github.com/Pavo-IM/ocbuilder/releases). Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the config.plist file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used config.plist file.
