@@ -101,13 +101,13 @@ If you load the included file, Auto+TB-CSM.bin, from within BIOS v2.10 (see moth
 
 Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes were set to Gen3. Reportedly the Gen3 setting is better for maxmizing performance for currently available GPUs. Experiment with the Gen3 vs Auto setting and see what works best for your build.
 
-
 |                    |              |
 | ------------------ | ------------ |
 | TB                 |  Enabled     |
 | Security Level     |  No Security |
 | CSM                |  Disabled    |
 | Above 4G decoding  |  Enabled     |
+
 
 
 #### 8 SMBIOS - How to Easily Update in OC
@@ -128,6 +128,7 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
 ![Test Image 2](OC_copy.jpg)
 
 ![Test Image 3](OC_paste.jpg)
+
 
 
 ### B) Usage
