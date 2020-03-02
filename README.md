@@ -52,7 +52,7 @@ In parallel to these are the two ACPI aml files SSDT-X570-BXBR_BYUP_BYD8_XHC2-XH
 
 #### 3 BT Settings
 
-To clarify the above description, the 2 sets hinted at above (you need to enable one, not both, within OpenCore):
+To clarify the above description, there are 2 sets of ACPI and kext files that you need to use. You need to enable one, not both, within OpenCore. The two sets can be described as follows:
 
 SET 1. SBT - Internal swapped BT, enable following (but disable those in SET 2):
 
