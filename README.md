@@ -112,7 +112,7 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 
 #### 8 SMBIOS - How to Easily Update in OC
 
-ormally, typing in SMBIOS data ia a pain. But in OC, once you've entered it, it is very easy to copy and paste between config files.
+Normally, typing in SMBIOS data can be a pain. But in OC, once you've entered it, it is very easy to copy and paste between config files.
 
 The images below show the steps. When editing, use PlistEdit Pro, Xcode or ProperTree.
 
