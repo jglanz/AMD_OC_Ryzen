@@ -134,8 +134,11 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
         PlatformInfo section. You can then remove the original PlatformInfo, replacing it with PlatformInfo-MacPro7,1. Then
         rename PlatformInfo-MacPro7,1 as PlatformInfo. Next, provide new SNs and UUID values for this section. (Alternately,
         you can enter SNs and UUIDs into the storage portion and keep sets of SN-entered PlatformInfo sections ready for
-        either iMacPro1,1 or MacPro7,1, switching as needed with little effort. (See A8 above for more details.) Other items stored are DeviceProperties
-        for swapped or PCIe BT modules. These are all present for convenience; they are not required. 
+        either iMacPro1,1 or MacPro7,1, switching as needed with little effort. (See A8 above for more details.) 
+        Other items stored are DevicePropertiesfor swapped or PCIe BT modules. These are all present for convenience; 
+        they are not required. 
+- Remember, the EFI folder, containing the Boot and OC folders, goes onto the EFI partition of your boot drive. 
+        Don't make rookie mistake of placing the Boot and OC folder directly onto the EFI partition: this won't boot.
 - Final EFI folder should have a structure as shown below (OC v056 as of 3/1/2020).
 
 ### C) EFI Folder
