@@ -68,8 +68,8 @@ SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
     
 The images below show the 2 sections, the ACPI and the Kexts sections, in the config.plist file where these files are to be enabled or disabled.
     
-    ![Test Image 4](Images/ACPI-X570X-USB-BT.jpg)
-    ![Test Image 5](Images/USBPorts-X570.jpg)
+![Test Image 1](Images/ACPI-X570X-USB-BT.jpg)
+![Test Image 2](Images/USBPorts-X570.jpg)
 
 
 #### 4 Drivers
@@ -101,7 +101,7 @@ One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot 
 
 Working within a PC environment means using BIOS and the manufacturer's typcial boot methods as expected. However, if we'd like a more Mac-like flavor, how about changing the usual boot message from the manufacturer to a more Mac-like experience? This can be done through a modified BIOS. The downloadable BIOS (X570CTR2-10-mod.rom.zip) is the latest v2.10 but instead of the ASRock logo, it displays an Apple inspired logo. 
 
-![Test Image 1](Images/AppleLogo_small.jpg)
+![Test Image 3](Images/AppleLogo_small.jpg)
 
 Of course, you then need to follow the X570 Creator manual in flashing this BIOS to the mobo. If you stored any settings for v2.10 on a drive, you can re-load these settings once you've flashed this BIOS. If you didn't save your settings externally, you'll have to re-enter all of your settings again: so prepare things ahead of time to make flashing easier. (When you flash a newer version of BIOS, settings cannot be re-loaded, but going within a version, you can re-load settings.)
 
@@ -136,9 +136,9 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
 - Highlight and click into the remaining section marked "PlatformInfo 2", editing out the space and 2 (" 2").
 - Then save the file.
 
-![Test Image 2](Images/OC_copy.jpg)
+![Test Image 4](Images/OC_copy.jpg)
 
-![Test Image 3](Images/OC_paste.jpg)
+![Test Image 5](Images/OC_paste.jpg)
 
 
 
