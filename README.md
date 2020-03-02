@@ -138,7 +138,7 @@ The images below show the steps. When editing, use PlistEdit Pro, Xcode or Prope
         Other items stored are DevicePropertiesfor swapped or PCIe BT modules. These are all present for convenience; 
         they are not required. 
 - Remember, the EFI folder, containing the Boot and OC folders, goes onto the EFI partition of your boot drive. 
-        Don't make rookie mistake of placing the Boot and OC folder directly onto the EFI partition: this won't boot.
+        Don't make the rookie mistake of placing the Boot and OC folders directly onto the EFI partition: this won't boot.
 - Final EFI folder should have a structure as shown below (OC v056 as of 3/1/2020).
 
 ### C) EFI Folder
