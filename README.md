@@ -102,11 +102,11 @@ One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot 
 
 #### 6 BIOS ROM
 
-Working within a PC environment means using BIOS and the manufacturer's typcial boot methods as expected. However, if we'd like a more Mac-like flavor, how about changing the usual boot message from the manufacturer to a more Mac-like experience? This can be done through a modified BIOS. The downloadable BIOS (X570CTR2-10-mod.rom.zip) is the latest v2.10 but instead of the ASRock logo, it displays an Apple inspired logo. 
+Working within a PC environment means using BIOS and the manufacturer's typcial boot methods, which includes their logo. If we'd like a more Mac-like tone, what about changing the usual manufacturer's boot logo to one that is more Mac-like? This can be done through a modified BIOS. The BIOS included in this repository (X570CTR2-10-mod.rom.zip) is the latest v2.10 BIOS but contains a modified boot logo as shown below. 
 
 ![Test Image 3](Images/AppleLogo_small.jpg)
 
-Of course, you then need to follow the X570 Creator manual in flashing this BIOS to the mobo. If you stored any settings for v2.10 on a drive, you can re-load these settings once you've flashed this BIOS. If you didn't save your settings externally, you'll have to re-enter all of your settings again: so prepare things ahead of time to make flashing easier. (When you flash a newer version of BIOS, settings cannot be re-loaded, but going within a version, you can re-load settings.)
+Of course, to use you need to follow the X570 Creator manual in how to flash a BIOS to the X570 Creator motherboard. If you stored any settings for v2.10 on a drive, you can re-load these settings once you've flashed this BIOS (a settings file is also included in this repository). If you didn't save your settings externally, you'll have to re-enter all of your settings again: so prepare things ahead of time to make flashing easier. (When you flash a different version of a BIOS, settings cannot be re-loaded from another version; however, when staying within a version, you can re-load settings.)
 
 
 #### 7 BIOS Settings
