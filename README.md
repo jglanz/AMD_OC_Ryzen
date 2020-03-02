@@ -166,8 +166,7 @@ Of course, you then need to follow the X570 Creator manual in flashing this BIOS
 
 ### Credits
 
-- [AlGrey](https://github.com/AlGreyy) for the idea and creating the patches
-- [Andrey1970AppleLife](https://github.com/Andrey1970AppleLife)
+- [AlGrey](https://github.com/AlGreyy) for the idea and creation of the AMD patches
 - [AMD OS X](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) for AMD related information
 - [Download-Fritz](https://github.com/Download-Fritz) for OpenCore
 - [khronokernel](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) for a great OC guidebook
