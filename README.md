@@ -84,11 +84,9 @@ VirtualSMC.efi is now part of OC. It, along with other settings in the config.pl
 
 #### 5 Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
 
-If the PCIe slot 6 is populated with an NVMe SSD in a PCIe adapter and if TB is enabled, the M2_2 drive will disappear from BIOS, which means the M2_2 drive is not available for booting. If the PCIe6 slot is empt and TB is still left enabled, the M2_2 SSD will be present in BIOS, and thus bootable. (See the included image of the motherboard: the M2_1 slot is closest to the CPU, while the M2_2 slot is farthest (and under the fan/shroud heatsink).
+If the PCIe slot 6 is populated with an NVMe SSD in a PCIe adapter and if TB is enabled, the M2_2 drive will disappear from BIOS, which means the M2_2 drive is not available for booting. If the PCIe6 slot is empty and TB is enabled, the M2_2 SSD will be present in BIOS, and thus bootable. When the M2_2 slot has disappeared from BIOS, the M2_2 drive will nevertheless appear in the Finder and be available for reading and writing. (See the included image of the motherboard: the M2_1 slot is closest to the CPU, while the M2_2 slot is farthest from the CPU, under the fan/shroud heatsink.)
 
-The problem is not just an ASRock issue, but can be found on MSI and ASUS forums, where people complain of 'disappearing' M2_2 drives. The problem lies with the X570 chip and how the PCIe and M2_2 slots are shared (lane sharing). While the M2_2 slot can disappear from BIOS, preventing booting from the drive in this slot, the drive will appear in the Finder and be available for reading and writing.
-
-Meanwhile, the PCIe1 slot is direct from the cpu and only has issues if another GPU is placed in PCIe4 (PCIe1 goes from x16 to x8 when PCIe4 contains a GPU).
+The problem is not just an ASRock issue, but can be found on MSI and ASUS forums, where people complain of 'disappearing' M2_2 drives. The problem lies with the X570 chip and how the PCIe and M2_2 slots are lane-shared. Meanwhile, the PCIe1 slot is direct from the cpu and only has issues if another GPU is placed in PCIe4 (PCIe1 goes from x16 to x8 when PCIe4 contains a GPU).
 
 To summarize:
 
@@ -97,7 +95,7 @@ To summarize:
 + PCIe6 + TB disabled --->  M2_2 will appear in BIOS
 - PCIe6 + TB disabled --->  M2_2 will appear in BIOS
 
-One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot device is assigned to GGP2. However, if TB is disabled, teh M2_1 slot is assigned to GPP0. This is reflected in the two SSDT aml files known as SSDT-X570-NVMe-GPP0-ANS3-noTB.aml and SSDT-X570-NVMe-GPP2-ANS3+TB.aml. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
+One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot device is assigned to PCI0/GGP2. However, if TB is disabled, teh M2_1 slot is assigned to PCI0/GPP0. This is reflected in the two SSDT aml files known as SSDT-X570-NVMe-GPP0-ANS3-noTB.aml and SSDT-X570-NVMe-GPP2-ANS3+TB.aml. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
 
 
 #### 6 BIOS ROM
