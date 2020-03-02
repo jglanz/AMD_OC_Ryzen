@@ -168,6 +168,7 @@ Of course, you then need to follow the X570 Creator manual in flashing this BIOS
 
 - [AlGrey](https://github.com/AlGreyy) for the idea and creation of the AMD patches
 - [AMD OS X](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) for AMD related information
+- [CaseySJ](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/) for tireless work and ingenuity in TB decoding
 - [Download-Fritz](https://github.com/Download-Fritz) for OpenCore
 - [khronokernel](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) for a great OC guidebook
 - [Pavo](https://github.com/Pavo-IM) for OCBuilder and AGPMInjector
