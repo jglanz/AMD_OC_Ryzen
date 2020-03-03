@@ -134,7 +134,9 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 
 ### 8. SMBIOS - How to Easily Update in OC
 
-Normally, typing in SMBIOS data can be a pain. But in OpenCore, once you've entered the SMBIOS data, it is very easy to copy and paste between config files, making switching between SMBIOS settings very easy (to further simplify, save each version with a different file name).
+SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the config.plist files for OpenCore), or using GenSMBIOS (https://github.com/corpnewt/GenSMBIOS).
+
+If you already have SNs and UUIDs values in an existing OpenCore config file, then cloning that SMBIOS data is easy. OC allows you to simpliy copy and paste sections, such as the PlatformInfo section, between config files.
 
 The images below show the steps. When editing the config.plist file, the recommended editors are PlistEdit Pro, Xcode or ProperTree.
 
@@ -158,9 +160,8 @@ The images below show the steps. When editing the config.plist file, the recomme
 - To build OpenCore using Pavo's OCBuilder, it is recommended to use the Release version with or without kexts update.
 - Move the repository included folders for ACPI, Kexts and the plist files into EFI/OC folder created by OCBuilder.
 - Verify that the proper driver efi files are in place, based on what is indicated within the config.plist file.
-- NOTE: the config.plist file does not contain SNs but place-holders that say "FILL-IN". You must supply these values on
-        your own (here, a copy of Clover can be useful for deriving un-used SNs and UUIDs. Once this SMBIOS data is entered,
-        it does not need to be entered again.
+- NOTE: the config.plist file does not contain SNs or UUIDs but place-holders that say "FILL-IN". You must supply these 
+        values on your own (see section A8 above for details).
 - Again, editing of config.plist files should only be done with PlistEdit Pro, Xcode or ProperTree (see Credits section for link).
 - There is a file named config-Only-For-Storage.plist. This file stores data that can be copy and pasted to the main
         config.plist file. For example, inside is an entry "PlatformInfo-MacPro7,1". With both files open, you can high- 
@@ -234,6 +235,6 @@ The images below show the steps. When editing the config.plist file, the recomme
 - [khronokernel](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) for a great OC guidebook
 - [NDK OC Menu](https://github.com/n-d-k/NdkBootPicker) for NDKBootPicker Menu for OC
 - [Pavo](https://github.com/Pavo-IM) for OCBuilder and AGPMInjector
-- [CorpNewt](https://github.com/corpnewt/ProperTree) for many things including ProperTree editor
+- [CorpNewt](https://github.com/corpnewt/ProperTree) for many things such as GenSMBIOS and ProperTree editor
 - [trulyspinach](https://github.com/trulyspinach/SMCAMDProcessor) for CPU Temp/Freq monitoring
 - [vit9696](https://github.com/vit9696) for OpenCore and many of the kexts we use
