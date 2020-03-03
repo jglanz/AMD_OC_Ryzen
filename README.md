@@ -175,7 +175,7 @@ The images below show the steps. When editing the config.plist file, the recomme
         Don't make the rookie mistake of placing the Boot and OC folders directly onto the EFI partition: this won't boot.
 - Finally, the EFI folder should have a structure as shown below (current version as posted at the beginning of this README file).
 
-## C. EFI Folder
+## C. EFI Folder Structure
 
        EFI----Boot----Bootx64.efi
         |
@@ -214,9 +214,29 @@ The images below show the steps. When editing the config.plist file, the recomme
                        |_____LogoutHook
                       
                           
-    
+## D. Config.plist Structure
 
-## D. Discussion
+       config.plist
+            |
+            |_____ACPI
+            |       |____various *.aml files
+            |
+            |_____Booter
+            |
+            |_____DeviceProperties
+            |
+            |_____Kernel
+            |
+            |_____Misc
+            |
+            |_____NVRAM
+            |
+            |_____PlatformInfo
+            |
+            |_____UEFI
+            
+
+## E. Discussion
 
 - [X570 Creator](https://forum.amd-osx.com/viewtopic.php?f=35&t=9645) for AMD TB3 updates
 - [OpenCore Discussion](https://www.insanelymac.com/forum/topic/338516-opencore-discussion/?page=1) for general OC issues
