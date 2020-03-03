@@ -23,7 +23,7 @@ Since the same version number can exist over a brief period of time until the fi
 
 ### 1. ACPI
 
-The first few files, those without a "-X570- prefix, are for setting up AGPM injector, and EC with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the -NVMe- and -AQC107 files adjust the device names and correct internal drives appearing as external icons. THe -BXBR and -GP13 rename the USB devices. 
+The first few files, those without a "-X570- prefix, are for setting up AGPM injector, and EC with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the -NVMe- and -AQC107 files adjust the device names and correct internal drives appearing as external icons. The SSDTs -BXBR and -GP13 rename the USB devices. 
 
 The GPU SSDT files, such as SSDT-X570-RX580-slot-1.aml, primarily provide correct re-naming of the devices (although much is provided by WEG) and nice displays of the drivers within SystemInformaion/PCI on the Mac. Two of these do adjust the functioning of the PowerTables (Vega 56 and 64). These SSDT GPU files do not inject AGPM; that is provided through kext files described in the next section.
 
