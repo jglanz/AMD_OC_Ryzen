@@ -145,10 +145,12 @@ The images below show the steps. When editing the config.plist file, the recomme
 
 ### B) Usage
  
-- To build OpenCore using Pavo's OCBuilder. It is recommended to use the Release version.
-- Move included folders for ACPI, Drivers, Kexts and the plist files into EFI/OC folder created by OCBuilder
+- To build OpenCore using Pavo's OCBuilder, it is recommended to use the Release version with or without kexts update.
+- Move the repository included folders for ACPI, Kexts and the plist files into EFI/OC folder created by OCBuilder.
+- Verify that the proper driver efi files are in place, based on what is indicated within the config.plist file.
 - NOTE: the config.plist file does not contain SNs but place-holders that say "FILL-IN". You must supply these values on
-        your own (here, a copy of Clover can be useful for deriving un-used SNs and UUIDs.
+        your own (here, a copy of Clover can be useful for deriving un-used SNs and UUIDs. Once this SMBIOS data is entered,
+        it does not need to be entered again.
 - Again, editing of config.plist files should only be done with PlistEdit Pro, Xcode or ProperTree (see Credits section for link).
 - There is a file named config-Only-For-Storage.plist. This file stores data that can be copy and pasted to the main
         config.plist file. For example, inside is an entry "PlatformInfo-MacPro7,1". With both files open, you can high- 
@@ -157,11 +159,11 @@ The images below show the steps. When editing the config.plist file, the recomme
         rename PlatformInfo-MacPro7,1 as PlatformInfo. Next, provide new SNs and UUID values for this section. (Alternately,
         you can enter SNs and UUIDs into the storage portion and keep sets of SN-entered PlatformInfo sections ready for
         either iMacPro1,1 or MacPro7,1, switching as needed with little effort. (See A8 above for more details.) 
-        Other items stored are DevicePropertiesfor swapped or PCIe BT modules. These are all present for convenience; 
+        Other items stored in this file are DevicePropertiesfor swapped or PCIe BT modules. These are all present for convenience; 
         they are not required. 
 - Remember, the EFI folder, containing the Boot and OC folders, goes onto the EFI partition of your boot drive. 
         Don't make the rookie mistake of placing the Boot and OC folders directly onto the EFI partition: this won't boot.
-- Final EFI folder should have a structure as shown below (OC v056 as of 3/1/2020).
+- Finally, the EFI folder should have a structure as shown below (current version as posted at the beginning of this README file).
 
 ### C) EFI Folder
 
