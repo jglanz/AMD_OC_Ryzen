@@ -210,17 +210,17 @@ The images below show the steps. When editing the config.plist file, the recomme
        config.plist
             |
             |_____ACPI
-            |       |____Add: *.aml files
+            |       |____Add: *.aml files (discussed above in section A1)
             |       |____Block, Patch, Quirks: all inactive at this time
             |_____Booter
             |       |____MmioWhitelist: not active
             |       |____Quirks: YES: AvoidRuntimeDefrag, EnableSafeModeSlide, EnableWriteUnprotector, ProvideCustomSlide, SetupVirtualMap
-            |                       (rest: NO)
+            |                     NO: all others
             |_____DeviceProperties
             |       |____Add: I211 Controller, BT Controller (slot 5), Realtek ALC1220 Audio Controller
             |       |____Block: inactive at this time
             |_____Kernel
-            |       |____Add: *.kext files
+            |       |____Add: *.kext files (discussed above in section A2)
             |       |____Block, Emulate: inactive at this time
             |       |____Patch: all of the Al Grey secret sauce for AMD CPU
             |       |____Quirks: YES: DisableIoMapper, DummyPowerManagement (esp for AMD build), ExternalDiskIcons, PanicNoKextDump, PowerTimeoutKernelPanic
