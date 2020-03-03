@@ -137,7 +137,7 @@ SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover 
 
 If you already have SNs and UUIDs values in an existing OpenCore config file, then cloning that SMBIOS data is easy. OC allows you to simpliy copy and paste sections, such as the PlatformInfo section, between config files.
 
-The images below show the steps. When editing the config.plist file, the recommended editors are PlistEdit Pro, Xcode or ProperTree.
+The images below show the steps. When editing the config.plist file, the recommended editors are PlistEdit Pro, Xcode or [ProperTree](https://github.com/corpnewt/ProperTree).
 
 - Backup the config files before starting.
 - Open both files you're to copy between.
