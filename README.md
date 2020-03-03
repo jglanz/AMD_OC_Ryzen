@@ -178,6 +178,7 @@ The images below show the steps. When editing the config.plist file, the recomme
 ## C. EFI Folder Structure
 
        EFI____Boot___Bootx64.efi
+        |
         |_____OC_____ACPI
                |       |____ *.aml files
                |_____config.plist
@@ -190,7 +191,9 @@ The images below show the steps. When editing the config.plist file, the recomme
                |       |______ApfsDriverLoader.efi, AudioDxe.efi, FwRuntimeServices.efi, HFSPlus.efi
                |_____Kexts
                |       |______various *.kext files
+               |
                |_____OpenCore.efi
+               |
                |_____Resources
                |       |_____Audio
                |                |____ various WAV files
@@ -208,22 +211,27 @@ The images below show the steps. When editing the config.plist file, the recomme
             |
             |_____ACPI
             |       |____Add: *.aml files
-            |       |____Block, Patch, Quirks: all in-active at this time
+            |       |____Block, Patch, Quirks: all inactive at this time
             |_____Booter
             |       |____MmioWhitelist: not active
             |       |____Quirks: YES: AvoidRuntimeDefrag, EnableSafeModeSlide, EnableWriteUnprotector, ProvideCustomSlide, SetupVirtualMap
             |                       (rest: NO)
             |_____DeviceProperties
             |       |____Add: I211 Controller, BT Controller (slot 5), Realtek ALC1220 Audio Controller
-            |       |____Block: in-active at this time
+            |       |____Block: inactive at this time
             |_____Kernel
             |       |____Add: *.kext files
-            |       |____Block, Emulate: in-active at this time
+            |       |____Block, Emulate: inactive at this time
             |       |____Patch: all of the Al Grey secret sauce for AMD CPU
-            |       |____Quirks: YES: 
-            |                     NO: 
-            |
+            |       |____Quirks: YES: DisableIoMapper, DummyPowerManagement (esp for AMD build), ExternalDiskIcons, PanicNoKextDump, PowerTimeoutKernelPanic
+            |                     NO: rest
             |_____Misc
+            |       |____BlessOverride: inactive
+            |       |____Boot: HibernateMode AUTO, HideAuxiliary YES, HideSelf YES, PickerAttributes 4 (red), PickerAudioAssist NO, PickerMode Builtin, PollAppleHotKeys NO, ShowPicker YES, TakeoffDelay 100, Timeout 10
+            |       |____Debug: DisableWatchDog YES, DisplayDelay 0, DisplayLevel 64, Target 65 (last 2 allow for min text warnings)
+            |       |____Entries: inactive (req. running Debug version to identify drive addresses)
+            |       |____Security: AllowNvramReset YES, AllowSetDefault YES, AuthRestart NO, ExposeSensitiveData 14, HaltLevel 2147483648, ScanPolicy 2820355, Vault Optional
+            |       |____Tools: YES for UEFI Shell
             |
             |_____NVRAM
             |
