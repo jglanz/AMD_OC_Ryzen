@@ -36,7 +36,7 @@ Finally, the SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for U
 
 The contents of the Kexts folder can be broken down into various groups. 
 
-First are the AGPMInjector kexts, which were made using Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the config.plist file. Example (shown below): SSDT-X570-RX580-slot-1.aml and AGPMInjector-iMacPro1,1-RX580.kext enabled as a pair in the config.plist file.
+First are the AGPMInjector kexts, which were made using Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the config.plist file. Example (shown below): SSDT-X570-RX580-slot-1.aml and AGPMInjector-iMacPro1,1-RX580.kext both enabled as a pair in the config.plist file.
 
 SSDT-RX580:
 ![Test Image 1](Images/SSDT-RX580.jpg)
