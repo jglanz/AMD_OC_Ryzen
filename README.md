@@ -23,19 +23,18 @@ Since the same version number can exist over a brief period of time until the fi
 
 #### 1 ACPI
 
-The first few files, those without a "-X570- prefix, are for setting up AGPM injector, and EC with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the -NVMe- and -AQC107 files adjust the device names and correct internal drives appearing as external icons. THe -BXBR and -GP13 rename the USB devices. The GPU SSDT primarily provide correct renaming and nice displays of the drivers within SystemInformaion/PCI on the Mac, but a few adjust the functioning of the PowerTables (Vega 56 and 64).
+The first few files, those without a "-X570- prefix, are for setting up AGPM injector, and EC with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the -NVMe- and -AQC107 files adjust the device names and correct internal drives appearing as external icons. THe -BXBR and -GP13 rename the USB devices. 
+
+The GPU SSDT files, such as SSDT-X570-RX580-slot-1.aml, primarily provide correct re-naming of the devices (although much is provided by WEG) and nice displays of the drivers within SystemInformaion/PCI on the Mac. Two of these do adjust the functioning of the PowerTables (Vega 56 and 64). These SSDT GPU files do not inject AGPM; that is provided through kext files described in the next section.
 
 The other two NVMe files listed as GPP0-ANS3 and GPP2-ANS3 are described below in section A5.
 
-The SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used.
+Finally, the SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used.
 
 
 #### 2 Kexts
 
-The contents of the Kexts folder can be broken down into various groups. First are the AGPMInjector kexts (created by
-Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). Here is provided several variations to save 
-time based on commonly used GPUs. These should be paired with similarly named files within the ACPI folder and each should
-be enabled within the config.plist file as required. Example: selected AGPMInjector-iMacPro1,1-RX580.kext and SSDT-X570-RX580-slot-1.aml as pairs, ensuring both are entered in the proper sections of the config.plist file and that both are enabled.
+The contents of the Kexts folder can be broken down into various groups. First are the AGPMInjector kexts, which were created by Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user to save time. These should be paired with similarly named SSDT-GPU files within the ACPI folder. That is, you use one SSDT file for your given GPU and one AGPM injector kext also specific for that GPU. These should be entered and enabled within the ACPI and Kernel sections of the config.plist file. Example: selected AGPMInjector-iMacPro1,1-RX580.kext and SSDT-X570-RX580-slot-1.aml as pairs, ensuring both are entered in the proper sections of the config.plist file and that both are enabled.
 
 Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described here https://forum.amd-osx.com/viewtopic.php?p=53060#p53060), you'll want all of these enabled within the config.plist file. If you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (which has a Broadcom 94360CD), then most of these are optional. Other files will vary whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). These changes will be described below.
 
