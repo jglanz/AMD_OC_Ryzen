@@ -10,7 +10,7 @@ This repository will also attempt to keep up-to-date the basics of this EFI fold
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
-While the external menu by NDK is noted at the bottom of this page, this repository will not use it nor provide sample files. It is entirely optional and not necessary for OC functionality. Please refer to the Discussion section D below if you are interested in this external menu system.
+While the external menu by NDK is noted at the bottom of this page, this repository will not use it nor provide sample files. It is entirely optional and not necessary for OC functionality. Please refer to the Discussion section E below if you are interested in this external menu system.
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
