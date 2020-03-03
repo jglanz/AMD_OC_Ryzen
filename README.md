@@ -77,9 +77,9 @@ Kernel section:
 
 #### 4 Drivers
 
-Only a few drivers are needed with OC: ApfsDriverLoader, HSSPlus and FwRuntimeServices are required. AudioDxe is only needed if BootChime or other newly introduced audio features in OC are desired. The associated OC/Resources/Audio folder with the included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There many other WAV files in the Audio folder when you compile it, totally over 90MB. This can be too large for some EFI partitions, so all but the bare essentials are included in this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.)
+Only a few drivers are needed with OC: ApfsDriverLoader and FwRuntimeServices are required. HSSPlus is optional, but useful. AudioDxe, a new addition for OC, is only needed if BootChime or the other newly introduced audio features in OC are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There many other WAV files in the Audio folder when you compile it, over 90MB. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile on your own with OCBuilder and add them.
 
-VirtualSMC.efi is now part of OC. It, along with other settings in the config.plist file are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated efi files will be neither discussed nor included.
+VirtualSMC.efi is now part of OpenCore. This file, along with settings in the config.plist file that are not enabled, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be neither discussed nor included. If you wish to use FileVault, then read the documentation and adjust the config.plist as needed.
 
 
 #### 5 Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
