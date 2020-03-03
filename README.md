@@ -232,12 +232,29 @@ The images below show the steps. When editing the config.plist file, the recomme
             |       |____Entries: inactive (req. running Debug version to identify drive addresses)
             |       |____Security: AllowNvramReset YES, AllowSetDefault YES, AuthRestart NO, ExposeSensitiveData 14, HaltLevel 2147483648, ScanPolicy 2820355, Vault Optional
             |       |____Tools: YES for UEFI Shell
-            |
             |_____NVRAM
-            |
-            |_____PlatformInfo
-            |
+            |       |____Add
+            |       |      |____4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14
+            |       |      |                                      |____DefaultBackgroundColor (black), UIScale 01
+            |       |      |____7C436110-AB2A-4BBB-A880-FE41995C9F82
+            |       |      |                                      |____boot-args: keepsyms=1 debug=0x100 shikigva=80 (for sidecar/Catalina)
+            |       |                                             |____csr-active-config: E7030000 
+            |       |                                             |____nvda_drv: 31 
+            |       |                                             |____prev-lang:kbd: 656E5F55 533A30 
+            |       |____Block: inactive at this time
+            |       |____LegacyEnable: NO
+            |       |____LegacyOverwrite: NO
+            |       |____LegacySchema: (see Docs)
+            |       |____WriteFlash: YES
+            |_____PlatformInfo (pending)
             |_____UEFI
+                    |____Audio: YES
+                    |____ConnectDrivers: YES
+                    |____Drivers: HFSPlus, ApfsDriverLoader, FwRuntimeServices, AudioDxe
+                    |____Input: KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
+                    |____Output: ProvideConsoleGop YES, ConsoleMode and Resolution left blank; rest NO
+                    |____Protocols: all NO
+                    |____Quirks: ExitBootServicesDelay 0, RequestBootVarFallback YES, RequestBootVarRouting YES; rest NO
             
 
 ## E. Discussion
