@@ -4,10 +4,9 @@ This repository provides the basic contents for an EFI folder to successfully bo
 using a Ryzen 9 CPU such as a 3950X. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1
 although provisions are available for running MacPro7,1 which will be described below.
 
-This repository is only designed for OpenCore bootloader. OpenCore (OC) is best updated via Pavo's OCBuilder app
-(https://github.com/Pavo-IM/ocbuilder/releases). Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the config.plist file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used config.plist file.
+This repository is only designed for OpenCore bootloader. OpenCore (OC) is best updated via Pavo's [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases) app. Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the config.plist file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used config.plist file.
 
-This repository will attempt to keep an up-to-date basics (ACPI and Kexts) of an EFI folder that will work on an established computer. However, for details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your system and other related matters, please see the AMD-OSX/AMD-Vanilla repository at https://github.com/AMD-OSX/AMD_Vanilla/tree/master and in particular, https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/ for loads of helpful details.
+This repository will attempt to keep an up-to-date basics (ACPI and Kexts) of an EFI folder that will work on an established computer. However, for details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your system and other related matters, please see the AMD-OSX/AMD-Vanilla [repository](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) and in particular, the [OpenCore-Guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) for loads of helpful details.
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
@@ -36,7 +35,7 @@ Finally, the SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for U
 
 The contents of the Kexts folder can be broken down into various groups. 
 
-First are the AGPMInjector kexts, which were made using Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the config.plist file. Example (shown below): SSDT-X570-RX580-slot-1.aml and AGPMInjector-iMacPro1,1-RX580.kext both enabled as a pair in the config.plist file.
+First are the AGPMInjector kexts, which were made using Pavo's [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) app. A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the config.plist file. Example (shown below): SSDT-X570-RX580-slot-1.aml and AGPMInjector-iMacPro1,1-RX580.kext both enabled as a pair in the config.plist file.
 
 SSDT-RX580:
 ![Test Image 1](Images/SSDT-RX580.jpg)
@@ -45,11 +44,11 @@ AGPMInjector:
 ![Test Image 2](Images/AGPMInj-RX580.jpg)
 
 
-Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described here https://forum.amd-osx.com/viewtopic.php?p=53060#p53060), you'll want all of these enabled within the config.plist file. On the other hand, if you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (which has a Broadcom 94360CD), then most of these kext files are optional. A few other files will vary depending on whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). Those changes will be described below.
+Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version, as described here [Swapping BT Module] (https://forum.amd-osx.com/viewtopic.php?p=53060#p53060), you'll want all of these enabled within the config.plist file. On the other hand, if you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (which has a Broadcom 94360CD), then most of these kext files are optional. A few other files will vary depending on whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). Those changes will be described below.
 
 Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). MacProMemoryNotificationDisabler is required for SMBIOS MacPro7,1. Within the config.plist file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. Similarly, WEG should be present before other graphics related kext files.
 
-NVMeFix (https://github.com/acidanthera/NVMeFix), ThunderboltReset (https://github.com/osy86/ThunderboltReset) and SMCAMDProcessor (https://github.com/trulyspinach/SMCAMDProcessor) are useful for adjusting the functioning of NVMe drives, setting up power for TB3, and providing CPU temperature and frequency information. ACPIDebug (and the companion SSDT-RMDT.aml file) will only be used to debug and trouble shoot TB3 SSDTs at a future date. Both of these files should presently be disabled and may be deleted at your choice.
+[NVMeFix](https://github.com/acidanthera/NVMeFix), [ThunderboltReset](https://github.com/osy86/ThunderboltReset) and [SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) are useful for adjusting the functioning of NVMe drives, setting up power for TB3, and providing CPU temperature and frequency information. ACPIDebug (and the companion SSDT-RMDT.aml file) will only be used to debug and trouble shoot TB3 SSDTs at a future date. Both of these files should presently be disabled and may be deleted at your choice.
 
 The above kext files may be updated independent of this repository using Hackintool, Kext Updater or OCBuilder. However, the final kext group described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
 
@@ -134,7 +133,7 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 
 ### 8. SMBIOS - How to Easily Update in OC
 
-SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the config.plist files for OpenCore), or using GenSMBIOS (https://github.com/corpnewt/GenSMBIOS).
+SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the config.plist files for OpenCore), or using the recommended [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS).
 
 If you already have SNs and UUIDs values in an existing OpenCore config file, then cloning that SMBIOS data is easy. OC allows you to simpliy copy and paste sections, such as the PlatformInfo section, between config files.
 
@@ -162,7 +161,7 @@ The images below show the steps. When editing the config.plist file, the recomme
 - Verify that the proper driver efi files are in place, based on what is indicated within the config.plist file.
 - NOTE: the config.plist file does not contain SNs or UUIDs but place-holders that say "FILL-IN". You must supply these 
         values on your own (see section A8 above for details).
-- Again, editing of config.plist files should only be done with PlistEdit Pro, Xcode or ProperTree (see Credits section for link).
+- Again, editing of config.plist files should only be done with PlistEdit Pro, Xcode or [ProperTree](https://github.com/corpnewt/ProperTree).
 - There is a file named config-Only-For-Storage.plist. This file stores data that can be copy and pasted to the main
         config.plist file. For example, inside is an entry "PlatformInfo-MacPro7,1". With both files open, you can high- 
         light and copy this section from the storage file to your config.plist file, pasting immediately below your current
@@ -235,6 +234,6 @@ The images below show the steps. When editing the config.plist file, the recomme
 - [khronokernel](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/) for a great OC guidebook
 - [NDK OC Menu](https://github.com/n-d-k/NdkBootPicker) for NDKBootPicker Menu for OC
 - [Pavo](https://github.com/Pavo-IM) for OCBuilder and AGPMInjector
-- [CorpNewt](https://github.com/corpnewt/ProperTree) for many things such as GenSMBIOS and ProperTree editor
+- [CorpNewt](https://github.com/corpnewt) for many things such as GenSMBIOS and ProperTree editor
 - [trulyspinach](https://github.com/trulyspinach/SMCAMDProcessor) for CPU Temp/Freq monitoring
 - [vit9696](https://github.com/vit9696) for OpenCore and many of the kexts we use
