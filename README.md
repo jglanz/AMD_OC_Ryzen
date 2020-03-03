@@ -207,8 +207,7 @@ The images below show the steps. When editing the config.plist file, the recomme
                           
 ## D. Config.plist Structure (under construction)
 
-       config.plist
-            |
+      config.plist
             |_____ACPI
             |       |____Add: *.aml files (discussed above in section A1)
             |       |____Block, Patch, Quirks: all inactive at this time
