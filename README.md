@@ -51,11 +51,13 @@ Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler
 
 NVMeFix (https://github.com/acidanthera/NVMeFix), ThunderboltReset (https://github.com/osy86/ThunderboltReset) and SMCAMDProcessor (https://github.com/trulyspinach/SMCAMDProcessor) are useful for adjusting the functioning of NVMe drives, setting up power for TB3, and providing CPU temperature and frequency information. ACPIDebug (and the companion SSDT-RMDT.aml file) will only be used to debug and trouble shoot TB3 SSDTs at a future date. Both of these files should presently be disabled and may be deleted at your choice.
 
-The above kext files may be updated independent of this repository using Hackintool, Kext Updater or OCBuilder. However, the kext files described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
+The above kext files may be updated independent of this repository using Hackintool, Kext Updater or OCBuilder. However, the final kext group described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
 
-The final group consists of two other kext files, which are the USBPort injectors, specific for this motherboard: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. These files inject the proper USB ports. (These file are not to be updated by outside apps.) The former is for SBT and the latter for PCIeBT. The default within the config.plist file is for PCIeBT, not SBT. 
+This final group consists of two USBPort injector kext files specific for this motherboard: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the config.plist file is for PCIeBT, not SBT, builds. 
 
-In parallel to these are the two ACPI aml files SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the latter is the default and enabled (and the former is disbled) in the config.plist file. Together, the PCIeBt disable the internal Intel BT device (removing it's USB power supply) to as not to interfere with the PCIe BT add-on card, which should be at slot-5. (See the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout.)
+In parallel use to these kext files are two ACPI files SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the config.plist file. 
+
+Together, these SSDT and kext files properly inject the USB ports, while in the case of PCIeBT version, disabling the internal Intel BT device (removing it's USB power supply) to as not to interfere with the BT add-on card, ideally located at slot-5. (See the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout.)
 
 
 #### 3 BT Settings
