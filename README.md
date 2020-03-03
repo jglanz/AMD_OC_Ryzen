@@ -223,7 +223,7 @@ The images below show the steps. When editing the config.plist file, the recomme
 - [NDK Customized OC Menu](https://www.insanelymac.com/forum/topic/341402-customized-opencore-with-additional-features/) for NDK OC menu issues
 
 
-#### Credits
+### Credits
 
 - [AlGrey](https://github.com/AlGreyy) for the idea and creation of the AMD patches
 - [AMD OS X](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) for AMD related information
