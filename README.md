@@ -34,7 +34,16 @@ Finally, the SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for U
 
 #### 2 Kexts
 
-The contents of the Kexts folder can be broken down into various groups. First are the AGPMInjector kexts, which were created by Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user to save time. These should be paired with similarly named SSDT-GPU files within the ACPI folder. That is, you use one SSDT file for your given GPU and one AGPM injector kext also specific for that GPU. These should be entered and enabled within the ACPI and Kernel sections of the config.plist file. Example: selected AGPMInjector-iMacPro1,1-RX580.kext and SSDT-X570-RX580-slot-1.aml as pairs, ensuring both are entered in the proper sections of the config.plist file and that both are enabled.
+The contents of the Kexts folder can be broken down into various groups. 
+
+First are the AGPMInjector kexts, which were created using Pavo's AGPMInjector app (https://github.com/Pavo-IM/AGPMInjector/releases). A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user to save time. These should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the config.plist file. Example (shown below): SSDT-X570-RX580-slot-1.aml and AGPMInjector-iMacPro1,1-RX580.kext enabled as a pair in the config.plist file.
+
+SSDT-RX580:
+![Test Image 1](Images/SSDT-RX580.jpg)
+
+AGPMInjector:
+![Test Image 2](Images/AGPMInj-RX580.jpg)
+
 
 Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described here https://forum.amd-osx.com/viewtopic.php?p=53060#p53060), you'll want all of these enabled within the config.plist file. If you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (which has a Broadcom 94360CD), then most of these are optional. Other files will vary whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). These changes will be described below.
 
@@ -68,10 +77,10 @@ SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
 The images below show the 2 sections, the ACPI and the Kernel sections, in the config.plist file, where these files are to be enabled or disabled.
 
 ACPI section:
-![Test Image 1](Images/ACPI-X570X-USB-BT.jpg)
+![Test Image 3](Images/ACPI-X570X-USB-BT.jpg)
 
 Kernel section:
-![Test Image 2](Images/USBPorts-X570.jpg)
+![Test Image 4](Images/USBPorts-X570.jpg)
 
 
 #### 4 Drivers
@@ -101,7 +110,7 @@ One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot 
 
 Working within a PC environment means using BIOS and the manufacturer's typcial boot methods, which includes their logo. If we'd like a more Mac-like tone, what about changing the usual manufacturer's boot logo to one that is more Mac-like? This can be done through a modified BIOS. The BIOS included in this repository (X570CTR2-10-mod.rom.zip) is the latest v2.10 BIOS but contains a modified boot logo as shown below. 
 
-![Test Image 3](Images/AppleLogo_small.jpg)
+![Test Image 5](Images/AppleLogo_small.jpg)
 
 Of course, to use you need to follow the X570 Creator manual in how to flash a BIOS to the X570 Creator motherboard. If you stored any settings for v2.10 on a drive, you can re-load these settings once you've flashed this BIOS (a settings file is also included in this repository). If you didn't save your settings externally, you'll have to re-enter all of your settings again: so prepare things ahead of time to make flashing easier. (When you flash a different version of a BIOS, settings cannot be re-loaded from another version; however, when staying within a version, you can re-load settings.)
 
@@ -136,9 +145,9 @@ The images below show the steps. When editing the config.plist file, the recomme
 - Highlight and click into the remaining section marked "PlatformInfo 2", editing out the space and 2 (" 2").
 - Then save the file.
 
-![Test Image 4](Images/OC_copy.jpg)
+![Test Image 6](Images/OC_copy.jpg)
 
-![Test Image 5](Images/OC_paste.jpg)
+![Test Image 7](Images/OC_paste.jpg)
 
 
 
