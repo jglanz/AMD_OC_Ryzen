@@ -55,7 +55,7 @@ The above kext files may be updated independent of this repository using Hackint
 
 This final group consists of two USBPort injector kext files specific for this motherboard: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the config.plist file is for PCIeBT, not SBT, builds. 
 
-In parallel use to these kext files are two ACPI files SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the config.plist file. 
+Use one of these two USBPort injector kext files in parallel one of two ACPI files: SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the config.plist file. This pairing is re-explained below in section A3.
 
 Together, these SSDT and kext files properly inject the USB ports, while in the case of PCIeBT version, disabling the internal Intel BT device (removing it's USB power supply) to as not to interfere with the BT add-on card, ideally located at slot-5. (See the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout.)
 
