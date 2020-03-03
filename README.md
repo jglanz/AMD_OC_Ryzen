@@ -124,15 +124,15 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 
 #### 8 SMBIOS - How to Easily Update in OC
 
-Normally, typing in SMBIOS data can be a pain. But in OC, once you've entered it, it is very easy to copy and paste between config files.
+Normally, typing in SMBIOS data can be a pain. But in OpenCore, once you've entered the SMBIOS data, it is very easy to copy and paste between config files, making switching between SMBIOS settings very easy (to further simplify, save each version with a different file name).
 
-The images below show the steps. When editing, use PlistEdit Pro, Xcode or ProperTree.
+The images below show the steps. When editing the config.plist file, the recommended editors are PlistEdit Pro, Xcode or ProperTree.
 
-- Backup the config files in case you make a mistake.
-- Open both files (and each file should not have the same name).
+- Backup the config files before starting.
+- Open both files you're to copy between.
 - Highlight and copy the old SMBIOS section (PlatformInfo) that has your working SNs, etc.
 - Go to the new config file that has a SMBIOS with no SNs and highlight its PlatformInfo section.
-- Do a paste, which leaves you with a file like the one shown in the other image below.
+- Do a paste, which leaves you with a file like the one shown in the image below.
 - Delete the PlatformInfo section marked "PlatformInfo" (highlight and press the delete key). 
 - Highlight and click into the remaining section marked "PlatformInfo 2", editing out the space and 2 (" 2").
 - Then save the file.
