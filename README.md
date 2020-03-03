@@ -177,52 +177,42 @@ The images below show the steps. When editing the config.plist file, the recomme
 
 ## C. EFI Folder Structure
 
-       EFI----Boot----Bootx64.efi
-        |
+       EFI____Boot___Bootx64.efi
         |_____OC_____ACPI
-               |       |____various *.aml files
-               |
+               |       |____ *.aml files
                |_____config.plist
-               |
                |_____config-Only-For-Storage.plist
-               |
                |_____Docs
                |       |_____AcipSamples
                |       |          |_______various SSDT files
-               |       |
                |       |_____Changelog.md, Configuration.pdf, Differences.pdf, Sample.plist, SampleFull.plist
-               |
                |_____Drivers
                |       |______ApfsDriverLoader.efi, AudioDxe.efi, FwRuntimeServices.efi, HFSPlus.efi
-               |
                |_____Kexts
                |       |______various *.kext files
-               |
                |_____OpenCore.efi
-               |
                |_____Resources
                |       |_____Audio
                |                |____ various WAV files
                |_____Tools
                |       |______BootKicker.efi, CleanNvram.efi, GopStop.efi, HdaCodecDump.efi, Shell.efi, VerifyMsE2.efi
-               |
                |_____Utilities
                        |_____BootInstall
-                       |
                        |_____CreateVault
-                       |
                        |_____LogoutHook
                       
                           
-## D. Config.plist Structure
+## D. Config.plist Structure (under construction)
 
        config.plist
             |
             |_____ACPI
-            |       |____various *.aml files
-            |
+            |       |____Add: *.aml
+            |       |____Block, Patch, Quirks: all in-active at this time
             |_____Booter
-            |
+            |       |____MmioWhitelist: not active
+            |       |____Quirks: YES: AvoidRuntimeDefrag, EnableSafeModeSlide, EnableWriteUnprotector, ProvideCustomSlide, SetupVirtualMap
+            |                       (rest: NO)
             |_____DeviceProperties
             |
             |_____Kernel
