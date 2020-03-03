@@ -19,9 +19,9 @@ Since the same version number can exist over a brief period of time until the fi
 
 
 
-### A) Contents
+## A. Contents
 
-### 1 ACPI
+### 1. ACPI
 
 The first few files, those without a "-X570- prefix, are for setting up AGPM injector, and EC with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the -NVMe- and -AQC107 files adjust the device names and correct internal drives appearing as external icons. THe -BXBR and -GP13 rename the USB devices. 
 
@@ -32,7 +32,7 @@ The other two NVMe files listed as GPP0-ANS3 and GPP2-ANS3 are described below i
 Finally, the SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used.
 
 
-### 2 Kexts
+### 2. Kexts
 
 The contents of the Kexts folder can be broken down into various groups. 
 
@@ -60,7 +60,7 @@ Use one of these two USBPort injector kext files in parallel one of two ACPI fil
 Together, these SSDT and kext files properly inject the USB ports, while in the case of PCIeBT version, disabling the internal Intel BT device (removing it's USB power supply) to as not to interfere with the BT add-on card, ideally located at slot-5. (See the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout.)
 
 
-### 3 BT Settings
+### 3. BT Settings
 
 To clarify the above description, there are 2 sets of ACPI and kext files that you need to use. You need to enable one, not both, within OpenCore. The two sets can be described as follows:
 
@@ -85,14 +85,14 @@ Kernel section:
 ![Test Image 4](Images/USBPorts-X570.jpg)
 
 
-### 4 Drivers
+### 4. Drivers
 
 Only a few drivers are required with OpenCore: ApfsDriverLoader and FwRuntimeServices. Even HSSPlus is optional, but useful. AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of the other newly introduced audio features are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There are many other WAV files in the Audio folder when OC is freshly compiled; in face, over 90MB worth. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile OC on your own with OCBuilder and add them.
 
 VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the config.plist file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be neither discussed nor included. If you wish to use FileVault, then read the documentation and adjust the config.plist as needed.
 
 
-### 5 Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
+### 5. Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
 
 If the PCIe slot 6 is populated with an NVMe SSD in a PCIe adapter and if TB is enabled, the M2_2 drive will disappear from BIOS, which means the M2_2 drive is not available for booting. If the PCIe6 slot is empty and TB is enabled, the M2_2 SSD will be present in BIOS, and thus bootable. When the M2_2 slot has disappeared from BIOS, the M2_2 drive will nevertheless appear in the Finder and be available for reading and writing. (See the included image of the motherboard: the M2_1 slot is closest to the CPU, while the M2_2 slot is farthest from the CPU, under the fan/shroud heatsink.)
 
@@ -108,7 +108,7 @@ To summarize:
 One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot device is assigned to PCI0/GGP2. However, if TB is disabled, teh M2_1 slot is assigned to PCI0/GPP0. This is reflected in the two SSDT aml files known as SSDT-X570-NVMe-GPP0-ANS3-noTB.aml and SSDT-X570-NVMe-GPP2-ANS3+TB.aml. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
 
 
-### 6 BIOS ROM
+### 6. BIOS ROM
 
 Working within a PC environment means using BIOS and the manufacturer's typcial boot methods, which includes their logo. If we'd like a more Mac-like tone, what about changing the usual manufacturer's boot logo to one that is more Mac-like? This can be done through a modified BIOS. The BIOS included in this repository (X570CTR2-10-mod.rom.zip) is the latest v2.10 BIOS but contains a modified boot logo as shown below. 
 
@@ -117,7 +117,7 @@ Working within a PC environment means using BIOS and the manufacturer's typcial 
 Of course, to use you need to follow the X570 Creator manual in how to flash a BIOS to the X570 Creator motherboard. If you stored any settings for v2.10 on a drive, you can re-load these settings once you've flashed this BIOS (a settings file is also included in this repository). If you didn't save your settings externally, you'll have to re-enter all of your settings again: so prepare things ahead of time to make flashing easier. (When you flash a different version of a BIOS, settings cannot be re-loaded from another version; however, when staying within a version, you can re-load settings.)
 
 
-### 7 BIOS Settings
+### 7. BIOS Settings
 
 If you load the included file, Auto+TB-CSM.bin, from within BIOS v2.10 (see motherboard manual on how to do this), you will have the basic optimal settings for this motherboard with TB enabled. The "Auto" portion in the file name refers to the fact that XMP has not been set, but left on Auto. Do note that this v2.10 settings file has manually reduced fan speeds; please adjust as necessary. Also, please confirm your boot order is correct under the BIOS Boot menu item before re-saving the settings.
 
@@ -132,7 +132,7 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 
 
 
-### 8 SMBIOS - How to Easily Update in OC
+### 8. SMBIOS - How to Easily Update in OC
 
 Normally, typing in SMBIOS data can be a pain. But in OpenCore, once you've entered the SMBIOS data, it is very easy to copy and paste between config files, making switching between SMBIOS settings very easy (to further simplify, save each version with a different file name).
 
@@ -153,7 +153,7 @@ The images below show the steps. When editing the config.plist file, the recomme
 
 
 
-### B) Usage
+## B. Usage
  
 - To build OpenCore using Pavo's OCBuilder, it is recommended to use the Release version with or without kexts update.
 - Move the repository included folders for ACPI, Kexts and the plist files into EFI/OC folder created by OCBuilder.
@@ -175,7 +175,7 @@ The images below show the steps. When editing the config.plist file, the recomme
         Don't make the rookie mistake of placing the Boot and OC folders directly onto the EFI partition: this won't boot.
 - Finally, the EFI folder should have a structure as shown below (current version as posted at the beginning of this README file).
 
-### C) EFI Folder
+## C. EFI Folder
 
        EFI----Boot----Bootx64.efi
         |
@@ -216,7 +216,7 @@ The images below show the steps. When editing the config.plist file, the recomme
                           
     
 
-### D) Discussion
+## D. Discussion
 
 - [X570 Creator](https://forum.amd-osx.com/viewtopic.php?f=35&t=9645) for AMD TB3 updates
 - [OpenCore Discussion](https://www.insanelymac.com/forum/topic/338516-opencore-discussion/?page=1) for general OC issues
