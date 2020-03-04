@@ -269,7 +269,7 @@ The images below show the steps. When editing the config.plist file, the recomme
 
 ### Credits
 
-- [AlGrey](https://github.com/AlGreyy) for the idea and creation of the AMD [patches[(https://github.com/AMD-OSX/AMD_Vanilla/tree/opencore)
+- [AlGrey](https://github.com/AlGreyy) for the idea and creation of the AMD [patches](https://github.com/AMD-OSX/AMD_Vanilla/tree/opencore)
 - [AMD OS X](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) for AMD related information
 - [CaseySJ](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/) for tireless work and ingenuity in TB decoding
 - [Download-Fritz](https://github.com/Download-Fritz) for OpenCore
