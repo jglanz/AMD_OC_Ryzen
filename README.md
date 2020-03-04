@@ -238,7 +238,7 @@ The images below show the steps. When editing the config.plist file, the recomme
             |_____NVRAM
             |       |____Add
             |       |      |____4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14
-            |       |      |                                      |____DefaultBackgroundColor 00000000 (black), UIScale 01
+            |       |      |                                      |____DefaultBackgroundColor 00000000 (black), UIScale 02
             |       |      |____7C436110-AB2A-4BBB-A880-FE41995C9F82
             |       |                                             |____boot-args: keepsyms=1 debug=0x100 shikigva=80 (for sidecar/Catalina)
             |       |                                             |____csr-active-config: E7030000 
