@@ -209,7 +209,7 @@ The images below show the steps. When editing the config.plist file, the recomme
                        |_____LogoutHook
                       
                           
-## D. Config.plist Structure (under construction)
+## D. Config.plist Structure
 
       config.plist
             |_____ACPI
@@ -249,7 +249,7 @@ The images below show the steps. When editing the config.plist file, the recomme
             |       |____LegacyOverwrite: NO
             |       |____LegacySchema: (see Docs)
             |       |____WriteFlash: YES
-            |_____PlatformInfo (pending)
+            |_____PlatformInfo (...incomplete description...)
             |_____UEFI
                     |____Audio: YES
                     |____ConnectDrivers: YES
