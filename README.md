@@ -251,7 +251,7 @@ The images below show the steps. When editing the config.plist file, the recomme
             |       |____WriteFlash: YES
             |_____PlatformInfo (...incomplete description...)
             |_____UEFI
-                    |____Audio (...incomplete description...)
+                    |____Audio: AudioCodec 0, AudioDevice (blank), AudioOut 0, AudioSupport NO, MinimumVolume 10, PlayChime YES, VolumeAmplifier 15
                     |____ConnectDrivers: YES
                     |____Drivers: HFSPlus, ApfsDriverLoader, FwRuntimeServices, AudioDxe
                     |____Input: KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
