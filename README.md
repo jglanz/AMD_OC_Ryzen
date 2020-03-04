@@ -177,7 +177,7 @@ The images below show the steps. When editing the config.plist file, the recomme
         they are not required. 
 - Remember, the EFI folder, containing the Boot and OC folders, goes onto the EFI partition of your boot drive. 
         Don't make the rookie mistake of placing the Boot and OC folders directly onto the EFI partition: this won't boot.
-- Finally, the EFI folder should have a structure as shown below (current version as posted at the beginning of this README file).
+- Finally, the EFI folder should have a structure as shown below.
 
 ## C. EFI Folder Structure
 
