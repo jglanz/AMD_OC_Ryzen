@@ -2,7 +2,7 @@
 
 This repository provides the basic contents for an EFI folder to successfully boot MacOS using an ASRock X570 Creator motherboard,
 using a Ryzen 9 CPU, such as a 3950X; aka AMD Hackintosh. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1
-although provisions are available for running MacPro7,1 which will be described below.
+although provisions are available for running MacPro7,1 which will be described below. 
 
 This repository is only designed for OpenCore bootloader. OpenCore (OC) is best updated via Pavo's [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases) app. Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the config.plist file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used config.plist file.
 
@@ -11,6 +11,8 @@ This repository will also attempt to keep up-to-date the basics of this EFI fold
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
 While the external menu by NDK is noted at the bottom of this page, this repository will not use it nor provide sample files. It is entirely optional and not necessary for OC functionality. Please refer to the Discussion section E below if you are interested in this external menu system.
+
+And while this repository is specific for the ASRock X570 Creator motherboard, much will be found in common with other X570 motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disapble those in the config.plist file before trying out, changing or removing them as you test your system.
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
@@ -137,7 +139,7 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 
 ### 8. SMBIOS - How to Easily Update in OC
 
-SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the config.plist files for OpenCore), or using the recommended [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS).
+SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the config.plist files for OpenCore), or using the recommended [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Also, do not use apps like "OpenCore configurator"; such editors will corrupt the config.plist file.
 
 If you already have SNs and UUIDs values in an existing OpenCore config file, then cloning that SMBIOS data is easy. OC allows you to simpliy copy and paste sections, such as the PlatformInfo section, between config files.
 
