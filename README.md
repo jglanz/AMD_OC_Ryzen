@@ -12,7 +12,7 @@ The EFI folder in this repository should be placed on the EFI partition of your 
 
 While the external menu by NDK is noted at the bottom of this page, this repository will not use it nor provide sample files. It is entirely optional and not necessary for OC functionality. Please refer to the Discussion section E below if you are interested in this external menu system.
 
-And while this repository is specific for the ASRock X570 Creator motherboard, much will be found in common with other X570 motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disapble those in the config.plist file before trying out, changing or removing them as you test your system.
+And while this repository is specific for the ASRock X570 Creator motherboard, much will be found in common with other X570 motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the config.plist file (ACPI section) before trying out. Later, change or remove them as you test your system.
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
