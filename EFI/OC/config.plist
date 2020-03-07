@@ -153,7 +153,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Thunderbolt</string>
+				<string>Thunderbolt - Built In</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -161,11 +161,19 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Thunderbolt - add-on card</string>
+				<string>Thunderbolt - add-on card - Alpine Ridge</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
-				<string>SSDT-X570-Cr-TB3-GPP9-slot-4.aml</string>
+				<string>SSDT-X570-Cr-TB3-GPP9-AR-slot-4.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Thunderbolt - add-on card - Titan Ridge</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-X570-Cr-TB3-GPP9-TR-slot-4.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>

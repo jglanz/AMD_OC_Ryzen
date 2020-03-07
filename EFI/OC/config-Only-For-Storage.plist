@@ -2,6 +2,70 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DeviceProperties - PCIe4 - Alpine Ridge</key>
+	<dict>
+		<key>Add</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x3,0x2)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Slot 4</string>
+				<key>device_type</key>
+				<string>Thunderbolt Peripheral</string>
+				<key>model</key>
+				<string>JHL6540 Thunderbolt 3 NHI [Alpine Ridge 4C 2016]</string>
+				<key>name</key>
+				<string>Intel Thunderbolt 3 NHI</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x3,0x2)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Slot 4</string>
+				<key>device-id</key>
+				<data>
+				1BUAAA==
+				</data>
+				<key>device_type</key>
+				<string>USB Controller</string>
+				<key>model</key>
+				<string>JHL6540 Thunderbolt 3 USB Controller (C step) [Alpine Ridge 4C 2016]</string>
+				<key>name</key>
+				<string>JHL6540 Thunderbolt 3 USB Controller</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>DeviceProperties - PCIe4 - Titan Ridge</key>
+	<dict>
+		<key>Add</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/Pci(0x8,0x0)/Pci(0x0,0x1)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Slot 4</string>
+				<key>device-id</key>
+				<data>
+				7BUAAA==
+				</data>
+				<key>device_type</key>
+				<string>USB Controller</string>
+				<key>model</key>
+				<string>JHL7540 Thunderbolt 3 USB Controller [Titan Ridge 4C 2018]</string>
+				<key>name</key>
+				<string>JHL7540 Thunderbolt 3 USB Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x3,0x2)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Slot 4</string>
+				<key>device_type</key>
+				<string>Thunderbolt Peripheral</string>
+				<key>model</key>
+				<string>JHL7540 Thunderbolt 3 NHI [Titan Ridge 4C 2018]</string>
+				<key>name</key>
+				<string>Intel Thunderbolt 3 NHI</string>
+			</dict>
+		</dict>
+	</dict>
 	<key>DeviceProperties-BT Variations_PCIe-Slot-5</key>
 	<dict>
 		<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)/Pci(0x7,0x0)/Pci(0x0,0x0)</key>
