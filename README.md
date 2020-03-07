@@ -103,7 +103,7 @@ This section shows the current status of the System Information section in Mac O
 
 Only a few drivers are required with OpenCore: ApfsDriverLoader and FwRuntimeServices. Even HSSPlus is optional, but useful. AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of the other newly introduced audio features are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There are many other WAV files in the Audio folder when OC is freshly compiled; in face, over 90MB worth. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile OC on your own with OCBuilder and add them.
 
-VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the config.plist file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the config.plist as needed. Nevertheless, due to possible interactions with VirtualSMC.kext, UEFI/AppleSmcIo is being set as YES/enabled.
+VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the config.plist file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the config.plist as needed.
 
 
 ### 6. Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
@@ -267,7 +267,7 @@ The images below show the steps. When editing the config.plist file, the recomme
                     |____Drivers: HFSPlus, ExFatDxe, ApfsDriverLoader, FwRuntimeServices, AudioDxe
                     |____Input: KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
                     |____Output: ProvideConsoleGop YES, ConsoleMode and Resolution left blank; rest NO
-                    |____Protocols: all NO except AppleSmcIo
+                    |____Protocols: all NO
                     |____Quirks: ExitBootServicesDelay 0, RequestBootVarFallback YES, RequestBootVarRouting YES; rest NO
             
 
