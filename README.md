@@ -83,7 +83,7 @@ SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
 
     B. USBPorts-X570-ASRock-CR-PCIe_BT.kext (removes PRT6 from XHCI, which supplies internal BT/WiFi device)
     
-The images below show the 2 sections, the ACPI and the Kernel sections, in the config.plist file, where these files are to be enabled or disabled.
+The images below show the 2 sections, the ACPI and the Kernel sections, in the config.plist file, where these files are to be enabled or disabled. (Note: XHC was renamed to XHCI on 3/7/20 with changes to various other files.)
 
 ACPI section:
 ![Test Image 3](Images/ACPI-X570X-USB-BT.jpg)
