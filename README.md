@@ -30,7 +30,7 @@ The GPU SSDT files, such as SSDT-X570-RX580-slot-1.aml, primarily provide correc
 
 The other two NVMe files listed as GPP0-ANS3 and GPP2-ANS3 are described below in section A5.
 
-Finally, the SSDT-X570-TB3-basic.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used.
+Finally, the SSDT-X570-TB3-Builtin.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testnig is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4). The SSDT for this is SSDT-X570-Cr-TB3-GPP9-slot-4.aml. While this file is included, it is disabled within the ACPI section of the config.plist file.
 
 
 ### 2. Kexts
@@ -58,7 +58,7 @@ The above kext files may be updated independent of this repository using [Hackin
 
 This final group consists of two USBPort injector kext files specific for this motherboard: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the config.plist file is for PCIeBT, not SBT, builds. 
 
-Use one of these two USBPort injector kext files in parallel one of two ACPI files: SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the config.plist file. This pairing is re-explained below in section A3.
+Use one of these two USBPort injector kext files in parallel one of two ACPI files: SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the config.plist file. This pairing is re-explained below in section A3.
 
 Together, these SSDT and kext files properly inject the USB ports and, in the case of the PCIeBT version, disable the internal Intel BT device (removing it's USB power supply). By removing the internal BT/WiFi device, the BT add-on card (ideally located at slot-5) will have less interference, and yet, if you use the computer to boot into Windows, the Internal device will work again. Whereas, if you use the SBT device, either MacOS or Windows will use the same device and it's USB power shouldn't be removed. This is why there are 2 sets of USBPort BT injector kexts.
 
@@ -71,15 +71,15 @@ To clarify the above description, there are 2 sets of ACPI and kext files that y
 
 SET 1. SBT - Internal swapped BT, enable following (but disable those in SET 2):
 
-    A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC.aml
+    A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI.aml
 
-    B. USBPorts-X570-ASRock-CR.kext
+    B. USBPorts-X570-ASRock-CR.kext (injects PRT6 in XHCI, which supplies swapped BT/WiFi device)
 
 SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
 
-    A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHC-PCIe_BT.aml
+    A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT.aml
 
-    B. USBPorts-X570-ASRock-CR-PCIe_BT.kext
+    B. USBPorts-X570-ASRock-CR-PCIe_BT.kext (removes PRT6 from XHCI, which supplies internal BT/WiFi device)
     
 The images below show the 2 sections, the ACPI and the Kernel sections, in the config.plist file, where these files are to be enabled or disabled.
 
@@ -258,7 +258,7 @@ The images below show the steps. When editing the config.plist file, the recomme
                     |____Drivers: HFSPlus, ExFatDxe, ApfsDriverLoader, FwRuntimeServices, AudioDxe
                     |____Input: KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
                     |____Output: ProvideConsoleGop YES, ConsoleMode and Resolution left blank; rest NO
-                    |____Protocols: all NO
+                    |____Protocols: all NO except AppleSmcIo
                     |____Quirks: ExitBootServicesDelay 0, RequestBootVarFallback YES, RequestBootVarRouting YES; rest NO
             
 
