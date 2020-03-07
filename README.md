@@ -30,7 +30,7 @@ The GPU SSDT files, such as SSDT-X570-RX580-slot-1.aml, primarily provide correc
 
 The other two NVMe files listed as GPP0-ANS3 and GPP2-ANS3 are described below in section A5.
 
-Finally, the SSDT-X570-TB3-Builtin.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testnig is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4). The SSDT for this is SSDT-X570-Cr-TB3-GPP9-slot-4.aml. While this file is included, it is disabled within the ACPI section of the config.plist file.
+Finally, the SSDT-X570-TB3-Builtin.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testnig is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4). The SSDT for this is SSDT-X570-Cr-TB3-GPP9-slot-4.aml. While this file is included, it is disabled within the ACPI section of the config.plist file. This SSDT injects the XHC device on the PCIe card as XHC1.
 
 
 ### 2. Kexts
@@ -62,7 +62,7 @@ Use one of these two USBPort injector kext files in parallel one of two ACPI fil
 
 Together, these SSDT and kext files properly inject the USB ports and, in the case of the PCIeBT version, disable the internal Intel BT device (removing it's USB power supply). By removing the internal BT/WiFi device, the BT add-on card (ideally located at slot-5) will have less interference, and yet, if you use the computer to boot into Windows, the Internal device will work again. Whereas, if you use the SBT device, either MacOS or Windows will use the same device and it's USB power shouldn't be removed. This is why there are 2 sets of USBPort BT injector kexts.
 
-For a complete USB port description, see the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout.
+For a complete USB port description, see the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout. Also see the included Hackintools image for USB details.
 
 
 ### 3. BT Settings
