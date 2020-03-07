@@ -62,7 +62,9 @@ Use one of these two USBPort injector kext files in parallel one of two ACPI fil
 
 Together, these SSDT and kext files properly inject the USB ports and, in the case of the PCIeBT version, disable the internal Intel BT device (removing it's USB power supply). By removing the internal BT/WiFi device, the BT add-on card (ideally located at slot-5) will have less interference, and yet, if you use the computer to boot into Windows, the Internal device will work again. Whereas, if you use the SBT device, either MacOS or Windows will use the same device and it's USB power shouldn't be removed. This is why there are 2 sets of USBPort BT injector kexts.
 
-For a complete USB port description, see the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout. Also see the included Hackintools image for USB details.
+For a complete USB port description, see the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout. See the Hackintools image for USB details below. This image reflects a swapped BT build as well as a second TB3 PCIe card in slot PCIe4 with an assigned XHC of XHC1. The internal TB3 is assigned XHC5.
+
+![Test Image 3](Images/X570-Hackintool-PCIeTB.jpg)
 
 
 ### 3. BT Settings
