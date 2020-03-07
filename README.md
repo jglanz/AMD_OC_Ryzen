@@ -16,7 +16,7 @@ And while this repository is specific for the ASRock X570 Creator motherboard, m
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
-***v057 - 3/3/2020 (reverted: problem with Vault on 3/6/20)***
+***v057 - 3/6/2020***
 
 
 
@@ -267,7 +267,7 @@ The images below show the steps. When editing the config.plist file, the recomme
                     |____Drivers: HFSPlus, ExFatDxe, ApfsDriverLoader, FwRuntimeServices, AudioDxe
                     |____Input: KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
                     |____Output: ProvideConsoleGop YES, ConsoleMode and Resolution left blank; rest NO
-                    |____Protocols: all NO
+                    |____Protocols: all NO except AppleSmcIo = YES
                     |____Quirks: ExitBootServicesDelay 0, RequestBootVarFallback YES, RequestBootVarRouting YES; rest NO
             
 
