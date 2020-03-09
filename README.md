@@ -38,7 +38,7 @@ Using a similar _ThunderboltConfig_ for the flashed TB3 PCIe4 card, does not yet
 
 On board TB3, using _SSDT-X570-TB3-Builtin.aml_:
 
-![Test Image 10](Images/TB3 Builtin.jpg)
+![Test Image 10](Images/TB3-Builtin.jpg)
 
 
 ### 2. Kexts
