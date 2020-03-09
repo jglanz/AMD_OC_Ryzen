@@ -2,7 +2,7 @@
 
 This repository provides the basic contents for an EFI folder to successfully boot MacOS using an __ASRock X570 Creator__ motherboard,
 using a Ryzen 9 CPU, such as a 3950X; aka AMD Hackintosh. The contents work with either _Mojave_ or _Catalina_. The intended SMBIOS is _iMacPro1,1_
-although provisions are available for running _MacPro7,1_ which will be described below. 
+although provisions are available for running _MacPro7,1_ which will be described below.
 
 This repository is only designed for OpenCore bootloader. __OpenCore__ (OC) is best updated via Pavo's [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases) app. Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the __config.plist__ file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used __config.plist__ file.
 
