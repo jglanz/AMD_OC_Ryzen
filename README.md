@@ -4,15 +4,15 @@ This repository provides the basic contents for an EFI folder to successfully bo
 using a Ryzen 9 CPU, such as a 3950X; aka AMD Hackintosh. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1
 although provisions are available for running MacPro7,1 which will be described below. 
 
-This repository is only designed for OpenCore bootloader. OpenCore (OC) is best updated via Pavo's [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases) app. Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the config.plist file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used config.plist file.
+This repository is only designed for OpenCore bootloader. OpenCore (OC) is best updated via Pavo's [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases) app. Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the __config.plist__ file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used __config.plist__ file.
 
 This repository will also attempt to keep up-to-date the basics of this EFI folder unique to this build (in particular, the ACPI and Kexts folders). This respository assumes you are fine tuning an established build. If you are looking for details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your system and other related matters, please see the AMD-OSX/AMD-Vanilla [repository](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) and especially, the AMD section in the very detailed [OpenCore-Guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/).
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
-As of pre-release v057, OC has its own graphics menu system, named BootLiquor.efi. It is turned on by default in this repository as of 3/8/20. In config.plist file see Misc/Boot/PickerMode = External (change to Builtin to disable graphics menu system).
+As of pre-release v057, OC has its own graphics menu system, named BootLiquor.efi. It is turned on by default in this repository as of 3/8/20. In __config.plist__ file see Misc/Boot/PickerMode = External. Change "External" to "Builtin" to disable graphics menu system.
 
-And while this repository is specific for the ASRock X570 Creator motherboard, much will be found in common with other X570 motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the config.plist file (ACPI section) before trying out. Later, change or remove them as you test your system.
+And while this repository is specific for the ASRock X570 Creator motherboard, much will be found in common with other X570 motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the __config.plist__ file (ACPI section) before trying out. Later, change or remove them as you test your system.
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
@@ -24,20 +24,22 @@ OpenCore version numbers are not incremented for each minor adjustment, but incr
 
 ### 1. ACPI
 
-The first few files, those without a "-X570- prefix, are for setting up AGPM injector, and EC with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the -NVMe- and -AQC107 files adjust the device names and correct internal drives appearing as external icons. The SSDTs -BXBR and -GP13 rename the USB devices. 
+The first few files, those without a _-X570-_ prefix, are for setting up AGPM injector, and _EC_ with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the _-NVMe-_ files adjust the device names and correct internal drives appearing as external icons. The SSDTs _-BXBR_ and _-GP13_ rename the USB devices. 
 
-The GPU SSDT files, such as SSDT-X570-RX580-slot-1.aml, primarily provide correct re-naming of the devices (although much is provided by WEG) and nice displays of the drivers within SystemInformaion/PCI on the Mac. Two of these do adjust the functioning of the PowerTables (Vega 56 and 64). These SSDT GPU files do not inject AGPM; that is provided through kext files described in the next section.
+The GPU SSDT files, such as _SSDT-X570-RX580-slot-1.aml_, primarily provide correct re-naming of the devices (although much is provided by WEG) and nice displays of the drivers within SystemInformaion/PCI on the Mac. Two of these do adjust the functioning of the PowerTables (Vega 56 and 64). These SSDT GPU files do not inject AGPM; that is provided through kext files described in the next section.
 
-The other two NVMe files listed as GPP0-ANS3 and GPP2-ANS3 are described below in section A6.
+The other two NVMe files listed as _GPP0-ANS3_ and _GPP2-ANS3_ are described below in section A6.
 
-Finally, the SSDT-X570-TB3-Builtin.aml file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testnig is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4). The SSDT for this is SSDT-X570-Cr-TB3-GPP9-slot-4.aml. While this file is included, it is disabled within the ACPI section of the config.plist file. This SSDT injects the XHC device on the PCIe card as XHC1.
+Finally, the _SSDT-X570-TB3-Builtin.aml_ file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testnig is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4), which was flashed the NVM 23. The SSDT for this is _SSDT-X570-Cr-TB3-GPP9-slot-4.aml_. While this file is included, it is disabled within the ACPI section of the __config.plist__ file. This SSDT injects the XHC device on the PCIe card as XHC1.
+
+As of 3/8/20, there is discussion of _ThunderboltConfig_ significantly affecting TB performance. In adjusting sytem, built in TB seems to respond well to this injection (SSP1 and SSP2 are assigned to ports 3 and 4, respectively). Using a similar _ThunderboltConfig_ for the flashed TB3 PCIe4 card, does not yet give the same result. So again, TB is a work in progress.
 
 
 ### 2. Kexts
 
 The contents of the Kexts folder can be broken down into various groups. 
 
-First are the AGPMInjector kexts, which were made using Pavo's [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) app. A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the config.plist file. Example (shown below): SSDT-X570-RX580-slot-1.aml and AGPMInjector-iMacPro1,1-RX580.kext both enabled as a pair in the config.plist file.
+First are the AGPMInjector kexts, which were made using Pavo's [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) app. A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the __config.plist__ file. Example (shown below): _SSDT-X570-RX580-slot-1.aml_ and _AGPMInjector-iMacPro1,1-RX580.kext_ both enabled as a pair in the __config.plist__ file.
 
 SSDT-RX580:
 ![Test Image 1](Images/SSDT-RX580.jpg)
@@ -46,9 +48,9 @@ AGPMInjector:
 ![Test Image 2](Images/AGPMInj-RX580.jpg)
 
 
-Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described in [Swapping BT Module](https://forum.amd-osx.com/viewtopic.php?p=53060#p53060)), you'll want all of these enabled within the config.plist file. On the other hand, if you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (with a Broadcom 94360CD), then most of these kext files are optional. A few other files will vary depending on whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). Those changes will be described below.
+Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described in [Swapping BT Module](https://forum.amd-osx.com/viewtopic.php?p=53060#p53060)), you'll want all of these enabled within the __config.plist__ file. On the other hand, if you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (with a Broadcom 94360CD), then most of these kext files are optional. A few other files will vary depending on whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). Those changes will be described below.
 
-Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). Within the config.plist file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. Similarly, WEG should be present before other graphics related kext files.
+Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). Within the __config.plist__ file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. Similarly, WEG should be present before other graphics related kext files.
 
 MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS MacPro7,1 (which requires Catalina).
 
@@ -56,9 +58,9 @@ MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS MacPro7
 
 The above kext files may be updated independent of this repository using [Hackintool](https://www.insanelymac.com/forum/topic/335018-hackintool-v286/), [Kext Updater](https://bitbucket.org/profdrluigi/kextupdater/downloads/) or [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases). However, the final kext group described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
 
-This final group consists of two USBPort injector kext files specific for this motherboard: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the config.plist file is for PCIeBT, not SBT, builds. 
+This final group consists of two USBPort injector kext files specific for this motherboard: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the __config.plist__ file is for PCIeBT, not SBT, builds. 
 
-Use one of these two USBPort injector kext files in parallel one of two ACPI files: SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the config.plist file. This pairing is re-explained below in section A3.
+Use one of these two USBPort injector kext files in parallel one of two ACPI files: SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the __config.plist__ file. This pairing is re-explained below in section A3.
 
 Together, these SSDT and kext files properly inject the USB ports and, in the case of the PCIeBT version, disable the internal Intel BT device (removing it's USB power supply). By removing the internal BT/WiFi device, the BT add-on card (ideally located at slot-5) will have less interference, and yet, if you use the computer to boot into Windows, the Internal device will work again. Whereas, if you use the SBT device, either MacOS or Windows will use the same device and it's USB power shouldn't be removed. This is why there are 2 sets of USBPort BT injector kexts.
 
@@ -83,7 +85,7 @@ SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
 
     B. USBPorts-X570-ASRock-CR-PCIe_BT.kext (removes PRT6 from XHCI, which supplies internal BT/WiFi device)
     
-The images below show the 2 sections, the ACPI and the Kernel sections, in the config.plist file, where these files are to be enabled or disabled. (Note: XHC was renamed to XHCI on 3/7/20 with changes to various other files.)
+The images below show the 2 sections, the ACPI and the Kernel sections, in the __config.plist__ file, where these files are to be enabled or disabled. (Note: XHC was renamed to XHCI on 3/7/20 with changes to various other files.)
 
 ACPI section:
 ![Test Image 3](Images/ACPI-X570X-USB-BT.jpg)
@@ -94,7 +96,7 @@ Kernel section:
 
 ### 4. System Information / PCI
 
-This section shows the current status of the System Information section in Mac OS. The image shown represents a swapped BT/Wifi card and an extra TB3 PCIe card at PCIe. The TB3 USB devices are being injected within the DeviceProperties section of the config.plist file, while the remaining devices are re-named within SSDT files.
+This section shows the current status of the System Information section in Mac OS. The image shown represents a swapped BT/Wifi card and an extra TB3 PCIe card at PCIe. The TB3 USB devices are being injected within the DeviceProperties section of the __config.plist__ file, while the remaining devices are re-named within SSDT files.
 
 ![Test Image 9](Images/X570-PCI-Info-PCIeTB.jpg)
 
@@ -103,7 +105,7 @@ This section shows the current status of the System Information section in Mac O
 
 Only a few drivers are required with OpenCore: ApfsDriverLoader and FwRuntimeServices. Even HSSPlus is optional, but useful. AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of the other newly introduced audio features are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There are many other WAV files in the Audio folder when OC is freshly compiled; in face, over 90MB worth. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile OC on your own with OCBuilder and add them.
 
-VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the config.plist file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the config.plist as needed. Nevertheless, due to possible interactions with VirtualSMC.kext, UEFI/Protocols/AppleSmcIo is being set as YES.
+VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the __config.plist__ as needed. Nevertheless, due to possible interactions with VirtualSMC.kext, UEFI/Protocols/AppleSmcIo is being set as YES.
 
 
 ### 6. Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
@@ -148,11 +150,11 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 
 ### 9. SMBIOS - How to Easily Update in OC
 
-SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the config.plist files for OpenCore), or using the recommended [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Also, do not use apps like "OpenCore configurator"; such editors will corrupt the config.plist file.
+SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the __config.plist__ files for OpenCore), or using the recommended [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Also, do not use apps like "OpenCore configurator"; such editors will corrupt the __config.plist__ file.
 
 If you already have SNs and UUIDs values in an existing OpenCore config file, then cloning that SMBIOS data is easy. OC allows you to simpliy copy and paste sections, such as the PlatformInfo section, between config files.
 
-The images below show the steps. When editing the config.plist file, the recommended editors are PlistEdit Pro, Xcode or [ProperTree](https://github.com/corpnewt/ProperTree).
+The images below show the steps. When editing the __config.plist__ file, the recommended editors are PlistEdit Pro, Xcode or [ProperTree](https://github.com/corpnewt/ProperTree).
 
 - Backup the config files before starting.
 - Open both files you're to copy between.
@@ -173,13 +175,13 @@ The images below show the steps. When editing the config.plist file, the recomme
  
 - To build OpenCore using Pavo's OCBuilder, it is recommended to use the Release version with or without kexts update.
 - Move the repository included folders for ACPI, Kexts and the plist files into EFI/OC folder created by OCBuilder.
-- Verify that the proper driver efi files are in place, based on what is indicated within the config.plist file.
-- NOTE: the config.plist file does not contain SNs or UUIDs but place-holders that say "FILL-IN". You must supply these 
+- Verify that the proper driver efi files are in place, based on what is indicated within the __config.plist__ file.
+- NOTE: the __config.plist__ file does not contain SNs or UUIDs but place-holders that say "FILL-IN". You must supply these 
         values on your own (see section A8 above for details).
-- Again, editing of config.plist files should only be done with PlistEdit Pro, Xcode or [ProperTree](https://github.com/corpnewt/ProperTree).
+- Again, editing of __config.plist__ files should only be done with PlistEdit Pro, Xcode or [ProperTree](https://github.com/corpnewt/ProperTree).
 - There is a file named config-Only-For-Storage.plist. This file stores data that can be copy and pasted to the main
-        config.plist file. For example, inside is an entry "PlatformInfo-MacPro7,1". With both files open, you can high- 
-        light and copy this section from the storage file to your config.plist file, pasting immediately below your current
+        __config.plist__ file. For example, inside is an entry "PlatformInfo-MacPro7,1". With both files open, you can high- 
+        light and copy this section from the storage file to your __config.plist__ file, pasting immediately below your current
         PlatformInfo section. You can then remove the original PlatformInfo, replacing it with PlatformInfo-MacPro7,1. Then
         rename PlatformInfo-MacPro7,1 as PlatformInfo. Next, provide new SNs and UUID values for this section. (Alternately,
         you can enter SNs and UUIDs into the storage portion and keep sets of SN-entered PlatformInfo sections ready for
