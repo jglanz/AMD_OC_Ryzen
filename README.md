@@ -1,18 +1,18 @@
 # OpenCore EFI for ASRock X570 Creator - AMD Hackintosh
 
-This repository provides the basic contents for an EFI folder to successfully boot MacOS using an ASRock X570 Creator motherboard,
-using a Ryzen 9 CPU, such as a 3950X; aka AMD Hackintosh. The contents work with either Mojave or Catalina. The intended SMBIOS is iMacPro1,1
-although provisions are available for running MacPro7,1 which will be described below. 
+This repository provides the basic contents for an EFI folder to successfully boot MacOS using an __ASRock X570 Creator__ motherboard,
+using a Ryzen 9 CPU, such as a 3950X; aka AMD Hackintosh. The contents work with either _Mojave_ or _Catalina_. The intended SMBIOS is _iMacPro1,1_
+although provisions are available for running _MacPro7,1_ which will be described below. 
 
-This repository is only designed for OpenCore bootloader. OpenCore (OC) is best updated via Pavo's [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases) app. Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the __config.plist__ file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used __config.plist__ file.
+This repository is only designed for OpenCore bootloader. __OpenCore__ (OC) is best updated via Pavo's [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases) app. Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the __config.plist__ file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used __config.plist__ file.
 
 This repository will also attempt to keep up-to-date the basics of this EFI folder unique to this build (in particular, the ACPI and Kexts folders). This respository assumes you are fine tuning an established build. If you are looking for details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your system and other related matters, please see the AMD-OSX/AMD-Vanilla [repository](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) and especially, the AMD section in the very detailed [OpenCore-Guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/).
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
-As of pre-release v057, OC has its own graphics menu system, named BootLiquor.efi. It is turned on by default in this repository as of 3/8/20. In __config.plist__ file see Misc/Boot/PickerMode = External. Change "External" to "Builtin" to disable graphics menu system.
+As of pre-release v057, OC has its own graphics menu system, named _BootLiquor.efi_. It is turned on by default in this repository as of 3/8/20. In __config.plist__ file see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
 
-And while this repository is specific for the ASRock X570 Creator motherboard, much will be found in common with other X570 motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the __config.plist__ file (ACPI section) before trying out. Later, change or remove them as you test your system.
+And while this repository is specific for the __ASRock X570 Creator__ motherboard, much will be found in common with other __X570__ motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the __config.plist__ file (ACPI section) before trying out. Later, change or remove them as you test your system.
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
@@ -52,13 +52,13 @@ Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFi
 
 Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). Within the __config.plist__ file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. Similarly, WEG should be present before other graphics related kext files.
 
-MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS MacPro7,1 (which requires Catalina).
+MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro7,1_ (which requires Catalina).
 
 [NVMeFix](https://github.com/acidanthera/NVMeFix), [ThunderboltReset](https://github.com/osy86/ThunderboltReset) and [SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) are useful for adjusting the functioning of NVMe drives, setting up power for TB3, and providing CPU temperature and frequency information. ACPIDebug (and the companion SSDT-RMDT.aml file) will only be used to debug and trouble shoot TB3 SSDTs at a future date. Both of these files should presently be disabled, or, if you choose, deleted.
 
 The above kext files may be updated independent of this repository using [Hackintool](https://www.insanelymac.com/forum/topic/335018-hackintool-v286/), [Kext Updater](https://bitbucket.org/profdrluigi/kextupdater/downloads/) or [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases). However, the final kext group described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
 
-This final group consists of two USBPort injector kext files specific for this motherboard: USBPorts-X570-ASRock-CR and USBPorts-X570-ASRock-CR-PCIe_BT. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the __config.plist__ file is for PCIeBT, not SBT, builds. 
+This final group consists of two USBPort injector kext files specific for this motherboard: _USBPorts-X570-ASRock-CR_ and _USBPorts-X570-ASRock-CR-PCIe_BT_. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the __config.plist__ file is for PCIeBT, not SBT, builds. 
 
 Use one of these two USBPort injector kext files in parallel one of two ACPI files: SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the __config.plist__ file. This pairing is re-explained below in section A3.
 
@@ -110,9 +110,9 @@ VirtualSMC.efi is now part of OpenCore. This file, along with various settings i
 
 ### 6. Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
 
-If the PCIe slot 6 is populated with an NVMe SSD in a PCIe adapter and if TB is enabled, the M2_2 drive will disappear from BIOS, which means the M2_2 drive is not available for booting. If the PCIe6 slot is empty and TB is enabled, the M2_2 SSD will be present in BIOS, and thus bootable. When the M2_2 slot has disappeared from BIOS, the M2_2 drive will nevertheless appear in the Finder and be available for reading and writing. (See the included image of the motherboard: the M2_1 slot is closest to the CPU, while the M2_2 slot is farthest from the CPU, under the fan/shroud heatsink.)
+If the PCIe slot 6 is populated with an NVMe SSD in a PCIe adapter and if TB is enabled, the _M2_2_ drive will disappear from BIOS, which means the _M2_2_ drive is not available for booting. If the PCIe6 slot is empty and TB is enabled, the _M2_2_ SSD will be present in BIOS, and thus bootable. When the _M2_2_ slot has disappeared from BIOS, the _M2_2_ drive will nevertheless appear in the Finder and be available for reading and writing. (See the included image of the motherboard: the _M2_1_ slot is closest to the CPU, while the _M2_2_ slot is farthest from the CPU, under the fan/shroud heatsink.)
 
-The problem is not just an ASRock issue, but can be found on MSI and ASUS forums, where people complain of 'disappearing' M2_2 drives. The problem lies with the X570 chip and how the PCIe and M2_2 slots are lane-shared. Meanwhile, the PCIe1 slot is direct from the cpu and only has issues if another GPU is placed in PCIe4 (PCIe1 goes from x16 to x8 when PCIe4 contains a GPU).
+The problem is not just an ASRock issue, but can be found on MSI and ASUS forums, where people complain of 'disappearing' _M2_2_ drives. The problem lies with the X570 chip and how the PCIe and _M2_2_ slots are lane-shared. Meanwhile, the PCIe1 slot is direct from the cpu and only has issues if another GPU is placed in PCIe4 (PCIe1 goes from x16 to x8 when PCIe4 contains a GPU).
 
 To summarize:
 
@@ -121,12 +121,12 @@ To summarize:
 + PCIe6 + TB disabled --->  M2_2 will appear in BIOS
 - PCIe6 + TB disabled --->  M2_2 will appear in BIOS
 
-One other problem appears when TB is enabled. When TB is enabled, the M2_1 slot device is assigned to PCI0/GGP2. However, if TB is disabled, teh M2_1 slot is assigned to PCI0/GPP0. This is reflected in the two SSDT aml files known as SSDT-X570-NVMe-GPP0-ANS3-noTB.aml and SSDT-X570-NVMe-GPP2-ANS3+TB.aml. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
+One other problem appears when TB is enabled. When TB is enabled, the _M2_1_ slot device is assigned to PCI0/GGP2. However, if TB is disabled, the _M2_1_ slot is assigned to PCI0/GPP0. This is reflected in the two SSDT aml files known as _SSDT-X570-NVMe-GPP0-ANS3-noTB.aml_ and _SSDT-X570-NVMe-GPP2-ANS3+TB.aml_. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
 
 
 ### 7. BIOS ROM
 
-Working within a PC environment means using BIOS and the manufacturer's typcial boot methods, which includes their logo. If we'd like a more Mac-like tone, what about changing the usual manufacturer's boot logo to one that is more Mac-like? This can be done through a modified BIOS. The BIOS included in this repository (X570CTR2-10-mod.rom.zip) is the latest v2.10 BIOS but contains a modified boot logo as shown below. 
+Working within a PC environment means using BIOS and the manufacturer's typcial boot methods, which includes their logo. If we'd like a more Mac-like tone, what about changing the usual manufacturer's boot logo to one that is more Mac-like? This can be done through a modified BIOS. The BIOS included in this repository (_X570CTR2-10-mod.rom.zip_) is the latest v2.10 BIOS but contains a modified boot logo as shown below. 
 
 ![Test Image 5](Images/AppleLogo_small.jpg)
 
@@ -135,7 +135,7 @@ Of course, to use you need to follow the X570 Creator manual in how to flash a B
 
 ### 8. BIOS Settings
 
-If you load the included file, Auto+TB-CSM.bin, from within BIOS v2.10 (see motherboard manual on how to do this), you will have the basic optimal settings for this motherboard with TB enabled. The "Auto" portion in the file name refers to the fact that XMP has not been set, but left on Auto. Do note that this v2.10 settings file has manually reduced fan speeds; please adjust as necessary. Also, please confirm your boot order is correct under the BIOS Boot menu item before re-saving the settings.
+If you load the included file, _Auto+TB-CSM.bin_, from within BIOS v2.10 (see motherboard manual on how to do this), you will have the basic optimal settings for this motherboard with TB enabled. The "Auto" portion in the file name refers to the fact that XMP has not been set, but left on Auto. Do note that this v2.10 settings file has manually reduced fan speeds; please adjust as necessary. Also, please confirm your boot order is correct under the BIOS Boot menu item before re-saving the settings.
 
 Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes were set to Gen3. Reportedly, the Gen3 setting is better for maxmizing performance from currently available GPUs. Experiment with the Gen3 vs Auto setting and see what works best for your build. Except for these discussed items, all other BIOS settings are default.
 
@@ -158,11 +158,11 @@ The images below show the steps. When editing the __config.plist__ file, the rec
 
 - Backup the config files before starting.
 - Open both files you're to copy between.
-- Highlight and copy the old SMBIOS section (PlatformInfo) that has your working SNs, etc.
+- Highlight and copy the old SMBIOS section (_PlatformInfo_) that has your working SNs, etc.
 - Go to the new config file that has a SMBIOS with no SNs and highlight its PlatformInfo section.
 - Do a paste, which leaves you with a file like the one shown in the image below.
 - Delete the PlatformInfo section marked "PlatformInfo" (highlight and press the delete key). 
-- Highlight and click into the remaining section marked "PlatformInfo 2", editing out the space and 2 (" 2").
+- Highlight and click into the remaining section marked _PlatformInfo 2_, editing out the space and 2 (" 2").
 - Then save the file.
 
 ![Test Image 6](Images/OC_copy.jpg)
@@ -182,10 +182,10 @@ The images below show the steps. When editing the __config.plist__ file, the rec
 - There is a file named config-Only-For-Storage.plist. This file stores data that can be copy and pasted to the main
         __config.plist__ file. For example, inside is an entry "PlatformInfo-MacPro7,1". With both files open, you can high- 
         light and copy this section from the storage file to your __config.plist__ file, pasting immediately below your current
-        PlatformInfo section. You can then remove the original PlatformInfo, replacing it with PlatformInfo-MacPro7,1. Then
-        rename PlatformInfo-MacPro7,1 as PlatformInfo. Next, provide new SNs and UUID values for this section. (Alternately,
+        PlatformInfo section. You can then remove the original PlatformInfo, replacing it with _PlatformInfo-MacPro7,1_. Then
+        rename _PlatformInfo-MacPro7,1_ as _PlatformInfo_. Next, provide new SNs and UUID values for this section. (Alternately,
         you can enter SNs and UUIDs into the storage portion and keep sets of SN-entered PlatformInfo sections ready for
-        either iMacPro1,1 or MacPro7,1, switching as needed with little effort. (See A8 above for more details.) 
+        either _iMacPro1,1_ or _MacPro7,1_, switching as needed with little effort. (See A8 above for more details.) 
         Other items stored in this file are DevicePropertiesfor swapped or PCIe BT modules. These are all present for convenience; 
         they are not required. 
 - Remember, the EFI folder, containing the Boot and OC folders, goes onto the EFI partition of your boot drive. 
@@ -267,8 +267,8 @@ The images below show the steps. When editing the __config.plist__ file, the rec
                     |____Audio: AudioCodec 0, AudioDevice (blank), AudioOut 0, AudioSupport NO, MinimumVolume 10, PlayChime YES, VolumeAmplifier 15
                     |____ConnectDrivers: YES
                     |____Drivers: HFSPlus, ExFatDxe, ApfsDriverLoader, FwRuntimeServices, AudioDxe, BootLiquor
-                    |____Input: KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
-                    |____Output: ProvideConsoleGop YES, ConsoleMode and Resolution left blank; rest NO
+                    |____Input: KeyFiltering NO, KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
+                    |____Output: ProvideConsoleGop YES, DirectGopCacheMode, ConsoleMode and Resolution left blank; the rest NO
                     |____Protocols: all NO except AppleSmcIo = YES
                     |____Quirks: ExitBootServicesDelay 0, RequestBootVarFallback YES, RequestBootVarRouting YES; rest NO
             
