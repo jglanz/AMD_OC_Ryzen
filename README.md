@@ -32,7 +32,7 @@ The other two NVMe files listed as _GPP0-ANS3_ and _GPP2-ANS3_ are described bel
 
 Finally, the _SSDT-X570-TB3-Builtin.aml_ file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testnig is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4), which was flashed the NVM 23. The SSDT for this is _SSDT-X570-Cr-TB3-GPP9-slot-4.aml_. While this file is included, it is disabled within the ACPI section of the __config.plist__ file. This SSDT injects the XHC device on the PCIe card as XHC1.
 
-As of 3/8/20, there is discussion of _ThunderboltConfig_ significantly affecting TB performance. In adjusting sytem, built in TB seems to respond well to this injection (SSP1 and SSP2 are assigned to ports 3 and 4, respectively). Using a similar _ThunderboltConfig_ for the flashed TB3 PCIe4 card, does not yet give the same result. So again, TB is a work in progress.
+As of 3/8/20, there is discussion of _ThunderboltConfig_ significantly affecting TB performance. In adjusting the SSDT files, the built in TB seems to respond well to this injection (SSP1 and SSP2 are assigned to ports 3 and 4, respectively). Using a similar _ThunderboltConfig_ for the flashed TB3 PCIe4 card, does not yet give the same result. So again, TB is a work in progress.
 
 
 ### 2. Kexts
