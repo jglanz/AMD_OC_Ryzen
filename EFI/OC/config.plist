@@ -161,14 +161,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Thunderbolt - add-on card - Alpine Ridge</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-X570-Cr-TB3-GPP9-AR-slot-4.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Thunderbolt - add-on card - Titan Ridge</string>
 				<key>Enabled</key>
 				<false/>
@@ -391,32 +383,6 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Built In</string>
-				<key>device_type</key>
-				<string>Thunderbolt Peripheral</string>
-				<key>model</key>
-				<string>JHL7540 Thunderbolt 3 NHI [Titan Ridge 4C 2018]</string>
-				<key>name</key>
-				<string>Intel Thunderbolt 3 NHI</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Built In</string>
-				<key>device-id</key>
-				<data>
-				7BUAAA==
-				</data>
-				<key>device_type</key>
-				<string>USB Controller</string>
-				<key>model</key>
-				<string>JHL7540 Thunderbolt 3 USB Controller [Titan Ridge 4C 2018]</string>
-				<key>name</key>
-				<string>JHL7540 Thunderbolt 3 USB Controller</string>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
@@ -1934,7 +1900,7 @@
 		<key>Boot</key>
 		<dict>
 			<key>HibernateMode</key>
-			<string>Auto</string>
+			<string>None</string>
 			<key>HideAuxiliary</key>
 			<true/>
 			<key>HideSelf</key>
@@ -1944,26 +1910,26 @@
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
-			<string>Builtin</string>
+			<string>External</string>
 			<key>PollAppleHotKeys</key>
 			<false/>
 			<key>ShowPicker</key>
 			<true/>
 			<key>TakeoffDelay</key>
-			<integer>100</integer>
+			<integer>10</integer>
 			<key>Timeout</key>
 			<integer>10</integer>
 		</dict>
 		<key>Debug</key>
 		<dict>
 			<key>DisableWatchDog</key>
-			<true/>
+			<false/>
 			<key>DisplayDelay</key>
 			<integer>0</integer>
 			<key>DisplayLevel</key>
-			<integer>64</integer>
+			<integer>0</integer>
 			<key>Target</key>
-			<integer>65</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Entries</key>
 		<array>
@@ -2262,7 +2228,7 @@
 			<key>MinimumVolume</key>
 			<integer>10</integer>
 			<key>PlayChime</key>
-			<true/>
+			<false/>
 			<key>VolumeAmplifier</key>
 			<integer>15</integer>
 		</dict>
@@ -2271,13 +2237,15 @@
 		<key>Drivers</key>
 		<array>
 			<string>HFSPlus.efi</string>
-			<string>ExFatDxe.efi</string>
 			<string>ApfsDriverLoader.efi</string>
 			<string>FwRuntimeServices.efi</string>
+			<string>Bootliquor.efi</string>
 			<string>AudioDxe.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
+			<key>KeyFiltering</key>
+			<false/>
 			<key>KeyForgetThreshold</key>
 			<integer>5</integer>
 			<key>KeyMergeThreshold</key>
@@ -2300,6 +2268,8 @@
 			<key>ClearScreenOnModeSwitch</key>
 			<false/>
 			<key>ConsoleMode</key>
+			<string></string>
+			<key>DirectGopCacheMode</key>
 			<string></string>
 			<key>DirectGopRendering</key>
 			<false/>
