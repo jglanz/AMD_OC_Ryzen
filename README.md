@@ -10,13 +10,13 @@ This repository will also attempt to keep up-to-date the basics of this EFI fold
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
-While the external menu by NDK is noted at the bottom of this page, this repository will not use it nor provide sample files. It is entirely optional and not necessary for OC functionality. Please refer to the Discussion section E below if you are interested in this external menu system.
+As of pre-release v057, OC has its own graphics menu system, named BootLiquor.efi. It is turned on by default in this repository as of 3/8/20. In config.plist file see Misc/Boot/PickerMode = External (change to Builtin to disable graphics menu system).
 
 And while this repository is specific for the ASRock X570 Creator motherboard, much will be found in common with other X570 motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the config.plist file (ACPI section) before trying out. Later, change or remove them as you test your system.
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
-***v057 - 3/6/2020***
+***v057 - 3/8/2020***
 
 
 
@@ -241,7 +241,7 @@ The images below show the steps. When editing the config.plist file, the recomme
             |                     NO: rest
             |_____Misc
             |       |____BlessOverride: inactive
-            |       |____Boot: HibernateMode AUTO, HideAuxiliary YES, HideSelf YES, PickerAttributes 4 (red), PickerAudioAssist NO, PickerMode Builtin, PollAppleHotKeys NO, ShowPicker YES, TakeoffDelay 100, Timeout 10
+            |       |____Boot: HibernateMode None, HideAuxiliary YES, HideSelf YES, PickerAttributes 4 (red), PickerAudioAssist NO, PickerMode External, PollAppleHotKeys NO, ShowPicker YES, TakeoffDelay 100, Timeout 10
             |       |____Debug: DisableWatchDog YES, DisplayDelay 0, DisplayLevel 64, Target 65 (last 2 allow for min text warnings)
             |       |____Entries: inactive (req. running Debug version to identify drive addresses)
             |       |____Security: AllowNvramReset YES, AllowSetDefault YES, AuthRestart NO, ExposeSensitiveData 14, HaltLevel 2147483648, ScanPolicy 2820355, Vault Optional
@@ -264,7 +264,7 @@ The images below show the steps. When editing the config.plist file, the recomme
             |_____UEFI
                     |____Audio: AudioCodec 0, AudioDevice (blank), AudioOut 0, AudioSupport NO, MinimumVolume 10, PlayChime YES, VolumeAmplifier 15
                     |____ConnectDrivers: YES
-                    |____Drivers: HFSPlus, ExFatDxe, ApfsDriverLoader, FwRuntimeServices, AudioDxe
+                    |____Drivers: HFSPlus, ExFatDxe, ApfsDriverLoader, FwRuntimeServices, AudioDxe, BootLiquor
                     |____Input: KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
                     |____Output: ProvideConsoleGop YES, ConsoleMode and Resolution left blank; rest NO
                     |____Protocols: all NO except AppleSmcIo = YES
