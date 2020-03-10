@@ -122,9 +122,9 @@ The problem is not just an ASRock issue, but can be found on MSI and ASUS forums
 
 To summarize:
 
-+ PCIe6 (full)  + TB enabled  --->  no M2_2 in BIOS
++ PCIe6 (used ) + TB enabled  --->  no M2_2 in BIOS
 - PCIe6 (empty) + TB enabled  --->  M2_2 will appear in BIOS
-+ PCIe6 (full)  + TB disabled --->  M2_2 will appear in BIOS
++ PCIe6 (used ) + TB disabled --->  M2_2 will appear in BIOS
 - PCIe6 (empty) + TB disabled --->  M2_2 will appear in BIOS
 
 One other problem appears when TB is enabled. When TB is enabled, the _M2_1_ slot device is assigned to PCI0/GGP2. However, if TB is disabled, the _M2_1_ slot is assigned to PCI0/GPP0. This is reflected in the two SSDT aml files known as _SSDT-X570-NVMe-GPP0-ANS3-noTB.aml_ and _SSDT-X570-NVMe-GPP2-ANS3+TB.aml_. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
