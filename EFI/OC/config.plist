@@ -675,22 +675,6 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>ThunderboltReset.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/ThunderboltReset</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
 				<string>MacProMemoryNotificationDisabler.kext</string>
 				<key>Comment</key>
 				<string>FIx Memory Slot Problems with SMBIOS MacPro7,1 for 10.15</string>
@@ -2239,8 +2223,8 @@
 			<string>HFSPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
 			<string>FwRuntimeServices.efi</string>
-			<string>Bootliquor.efi</string>
 			<string>AudioDxe.efi</string>
+			<string>Bootliquor.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
