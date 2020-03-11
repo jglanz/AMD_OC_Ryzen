@@ -16,7 +16,7 @@ And while this repository is specific for the __ASRock X570 Creator__ motherboar
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
-***v057 - 3/8/2020***
+***v057 - 3/10/2020***
 
 
 
@@ -111,7 +111,7 @@ This section shows the current status of the System Information section in Mac O
 
 Only a few drivers are required with OpenCore: ApfsDriverLoader and FwRuntimeServices. Even HSSPlus is optional, but useful. AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of the other newly introduced audio features are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There are many other WAV files in the Audio folder when OC is freshly compiled; in face, over 90MB worth. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile OC on your own with OCBuilder and add them.
 
-VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the __config.plist__ as needed. Nevertheless, due to possible interactions with VirtualSMC.kext, UEFI/Protocols/AppleSmcIo is being set as YES.
+VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the __config.plist__ as needed.
 
 
 ### 6. Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
@@ -250,7 +250,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
             |_____Misc
             |       |____BlessOverride: inactive
             |       |____Boot: HibernateMode None, HideAuxiliary YES, HideSelf YES, PickerAttributes 4 (red), PickerAudioAssist NO, PickerMode External, PollAppleHotKeys NO, ShowPicker YES, TakeoffDelay 100, Timeout 10
-            |       |____Debug: DisableWatchDog YES, DisplayDelay 0, DisplayLevel 64, Target 65 (last 2 allow for min text warnings)
+            |       |____Debug: AppleDebug NO, DisableWatchDog NO, DisplayDelay 0, DisplayLevel 64, Target 65 (last 2 allow for min text warnings)
             |       |____Entries: inactive (req. running Debug version to identify drive addresses)
             |       |____Security: AllowNvramReset YES, AllowSetDefault YES, AuthRestart NO, ExposeSensitiveData 14, HaltLevel 2147483648, ScanPolicy 2820355, Vault Optional
             |       |____Tools: YES for UEFI Shell
@@ -258,7 +258,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
             |       |____Add
             |       |      |____4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14
             |       |      |                                      |____DefaultBackgroundColor 00000000 (black), UIScale 02
-            |       |      |____7C436110-AB2A-4BBB-A880-FE41995C9F82
+            |       |      |____7C436110-AB2A-4BBB-A880-FE41995C9F82---SystemAudioVolume 46
             |       |                                             |____boot-args: keepsyms=1 debug=0x100 shikigva=80 (for sidecar/Catalina)
             |       |                                             |____csr-active-config: E7030000 
             |       |                                             |____nvda_drv: 31 
@@ -270,12 +270,12 @@ The images below show the steps. When editing the __config.plist__ file, the rec
             |       |____WriteFlash: YES
             |_____PlatformInfo (...incomplete description...)
             |_____UEFI
-                    |____Audio: AudioCodec 0, AudioDevice (blank), AudioOut 0, AudioSupport NO, MinimumVolume 10, PlayChime YES, VolumeAmplifier 15
+                    |____Audio: AudioCodec 0, AudioDevice (blank), AudioOut 0, AudioSupport NO, MinimumVolume 10, PlayChime NO, VolumeAmplifier 15
                     |____ConnectDrivers: YES
                     |____Drivers: HFSPlus, ExFatDxe, ApfsDriverLoader, FwRuntimeServices, AudioDxe, BootLiquor
                     |____Input: KeyFiltering NO, KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
                     |____Output: ProvideConsoleGop YES, DirectGopCacheMode, ConsoleMode and Resolution left blank; the rest NO
-                    |____Protocols: all NO except AppleSmcIo = YES
+                    |____Protocols: all NO
                     |____Quirks: ExitBootServicesDelay 0, RequestBootVarFallback YES, RequestBootVarRouting YES; rest NO
             
 
