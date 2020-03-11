@@ -114,9 +114,11 @@ Only a few drivers are required with OpenCore: ApfsDriverLoader and FwRuntimeSer
 VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the __config.plist__ as needed.
 
 
-### 6. Problems with TB enabling and the M2_2 site (an X570 problem) - disapparing drives
+### 6. Problems with TB staus and M2_1 & M2_2 slots (AKA 'disapparing drives')
 
-If the PCIe slot 6 (the large slot on the edge of the motherboard, farthest from the CPU) is populated, and if TB is enabled, the _M2_2_ drive will disappear from BIOS, which means the _M2_2_ drive is not available for booting. If the PCIe6 slot is empty and TB is enabled, the _M2_2_ SSD will be present in BIOS, and thus bootable. When the _M2_2_ slot has disappeared from BIOS, the _M2_2_ drive will nevertheless appear in the Finder and be available for reading and writing. (See the included image of the motherboard: the _M2_1_ slot is closest to the CPU, while the _M2_2_ slot is farthest from the CPU, under the fan/shroud heatsink.)
+If the PCIe slot 6 (the large slot on the edge of the motherboard, farthest from the CPU; see included mobo image) is populated, and if TB is enabled, the _M2_2_ drive will disappear from BIOS. This means that the _M2_2_ drive is not available for booting (if BIOS can't see a drive, it can't boot from it).
+
+But if the PCIe6 slot is empty and TB is enabled, the _M2_2_ SSD _will_ be present in BIOS, and thus bootable. Oddly, when the _M2_2_ slot has disappeared from BIOS, it will be visible on the desktop, so MacOS locates and mounts it nevertheless.
 
 The problem is not just an ASRock issue, but can be found on MSI and ASUS forums, where people complain of 'disappearing' _M2_2_ drives. The problem lies with the X570 chip and how the PCIe and _M2_2_ slots are lane-shared.
 
