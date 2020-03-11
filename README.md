@@ -85,7 +85,7 @@ SET 1. SBT - Internal swapped BT, enable following (but disable those in SET 2):
 
     B. USBPorts-X570-ASRock-CR.kext (injects PRT6 in XHCI, which supplies swapped BT/WiFi device)
 
-SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1):
+SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1) - __DEFAULT__:
 
     A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT.aml
 
