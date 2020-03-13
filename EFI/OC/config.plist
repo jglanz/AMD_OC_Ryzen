@@ -369,6 +369,8 @@
 			<false/>
 			<key>ProtectSecureBoot</key>
 			<false/>
+			<key>ProtectUefiServices</key>
+			<false/>
 			<key>ProvideCustomSlide</key>
 			<true/>
 			<key>SetupVirtualMap</key>
@@ -445,7 +447,7 @@
 				<key>BundlePath</key>
 				<string>Lilu.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Patch engine</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -461,7 +463,7 @@
 				<key>BundlePath</key>
 				<string>VirtualSMC.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>SMC emulator</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -477,7 +479,7 @@
 				<key>BundlePath</key>
 				<string>SMCAMDProcessor.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Temp Monitor patches</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -493,7 +495,7 @@
 				<key>BundlePath</key>
 				<string>WhateverGreen.kext</string>
 				<key>Comment</key>
-				<string>Video card; AGDP</string>
+				<string>Video patches; AGDP</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -514,6 +516,22 @@
 				<false/>
 				<key>ExecutablePath</key>
 				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>USBWakeFixup.kext</string>
+				<key>Comment</key>
+				<string>USB patches to fix wake from sleep</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/USBWakeFixup</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -557,7 +575,7 @@
 				<key>BundlePath</key>
 				<string>NVMeFix.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>NVMe drive patches</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -573,7 +591,7 @@
 				<key>BundlePath</key>
 				<string>AppleALC.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Audio patches</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -589,7 +607,7 @@
 				<key>BundlePath</key>
 				<string>AppleMCEReporterDisabler.kext</string>
 				<key>Comment</key>
-				<string>Req for Catalina</string>
+				<string>AppleMCEReporter disabler; req for Catalina</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -605,7 +623,7 @@
 				<key>BundlePath</key>
 				<string>SmallTreeIntel82576_mod.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Intel Ethernet LAN</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -2216,7 +2234,7 @@
 			<key>AudioSupport</key>
 			<false/>
 			<key>MinimumVolume</key>
-			<integer>10</integer>
+			<integer>20</integer>
 			<key>PlayChime</key>
 			<false/>
 			<key>VolumeAmplifier</key>
