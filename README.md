@@ -10,7 +10,7 @@ This repository will also attempt to keep up-to-date the basics of this EFI fold
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
-As of pre-release v057, OC has its own graphics menu system, named _BootLiquor.efi_; now changed to _OpenCanopy.efi_ as of 3/15/20. It is turned on by default in this repository. In __config.plist__ file see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
+As of pre-release v057 (as of 3/14/20), OC has its own graphics menu system, named _OpenCanopy.efi_. See Section A5 (Driver section) for details.
 
 And while this repository is specific for the __ASRock X570 Creator__ motherboard, much will be found in common with other __X570__ motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the __config.plist__ file (ACPI section) before trying out. Later, change or remove them as you test your system.
 
@@ -111,7 +111,9 @@ This section shows the current status of the System Information section in Mac O
 
 ### 5. Drivers
 
-Only a few drivers are required with OpenCore: ApfsDriverLoader and FwRuntimeServices. Even HSSPlus is optional, but useful. AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of the other newly introduced audio features are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There are many other WAV files in the Audio folder when OC is freshly compiled; in face, over 90MB worth. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile OC on your own with OCBuilder and add them.
+Only a few drivers are required with OpenCore: ApfsDriverLoader and OpenRuntime. Even HSSPlus is optional, but useful. AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of the other newly introduced audio features are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There are many other WAV files in the Audio folder when OC is freshly compiled; in face, over 90MB worth. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile OC on your own with OCBuilder and add them.
+
+Other, potentially useful drivers include OpenUsbKbDxe, ExFatDxe and OpenCanopy. The latter activates a graphical user interface (menu system). OpenCanopy is turned on by default. To change, adjust the __config.plist__ file: see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
 
 VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the __config.plist__ as needed.
 
