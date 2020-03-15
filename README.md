@@ -10,13 +10,13 @@ This repository will also attempt to keep up-to-date the basics of this EFI fold
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
-As of pre-release v057, OC has its own graphics menu system, named _BootLiquor.efi_. It is turned on by default in this repository as of 3/8/20. In __config.plist__ file see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
+As of pre-release v057, OC has its own graphics menu system, named _BootLiquor.efi_; now changed to _OpenCanopy.efi_ as of 3/15/20. It is turned on by default in this repository. In __config.plist__ file see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
 
 And while this repository is specific for the __ASRock X570 Creator__ motherboard, much will be found in common with other __X570__ motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the __config.plist__ file (ACPI section) before trying out. Later, change or remove them as you test your system.
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
-***v057 - 3/12/2020***
+***v057 - 3/15/2020***
 
 
 
@@ -215,7 +215,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
                |       |          |_______various SSDT files
                |       |_____Changelog.md, Configuration.pdf, Differences.pdf, Sample.plist, SampleFull.plist
                |_____Drivers
-               |       |______ApfsDriverLoader.efi, AudioDxe.efi, FwRuntimeServices.efi, HFSPlus.efi
+               |       |______ApfsDriverLoader.efi, AudioDxe.efi, HFSPlus.efi, OpenUsbKbDxe.efi, OpenRuntime.efi, OpenCanopy.efi (plus others that are less important for this build)
                |_____Kexts
                |       |______various *.kext files
                |
@@ -225,7 +225,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
                |       |_____Audio
                |                |____ various WAV files
                |_____Tools
-               |       |______BootKicker.efi, CleanNvram.efi, GopStop.efi, HdaCodecDump.efi, Shell.efi, VerifyMsE2.efi
+               |       |______OpenShell.efi, plus others (not discussed)
                |_____Utilities
                        |_____BootInstall
                        |_____CreateVault
@@ -253,8 +253,8 @@ The images below show the steps. When editing the __config.plist__ file, the rec
             |                     NO: rest
             |_____Misc
             |       |____BlessOverride: inactive
-            |       |____Boot: HibernateMode None, HideAuxiliary YES, HideSelf YES, PickerAttributes 4 (red), PickerAudioAssist NO, PickerMode External, PollAppleHotKeys NO, ShowPicker YES, TakeoffDelay 100, Timeout 10
-            |       |____Debug: AppleDebug NO, DisableWatchDog NO, DisplayDelay 0, DisplayLevel 64, Target 65 (last 2 allow for min text warnings)
+            |       |____Boot: HibernateMode None, HideAuxiliary YES, HideSelf YES, PickerAttributes 4 (red), PickerAudioAssist NO, PickerMode External, PollAppleHotKeys NO, ShowPicker YES, TakeoffDelay 10, Timeout 10
+            |       |____Debug: AppleDebug NO, DisableWatchDog NO, DisplayDelay 0, DisplayLevel 2147483650, Target 0
             |       |____Entries: inactive (req. running Debug version to identify drive addresses)
             |       |____Security: AllowNvramReset YES, AllowSetDefault YES, AuthRestart NO, ExposeSensitiveData 14, HaltLevel 2147483648, ScanPolicy 2820355, Vault Optional
             |       |____Tools: YES for UEFI Shell
@@ -276,7 +276,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
             |_____UEFI
                     |____Audio: AudioCodec 0, AudioDevice (blank), AudioOut 0, AudioSupport NO, MinimumVolume 10, PlayChime NO, VolumeAmplifier 15
                     |____ConnectDrivers: YES
-                    |____Drivers: HFSPlus, ExFatDxe, ApfsDriverLoader, FwRuntimeServices, AudioDxe, BootLiquor
+                    |____Drivers: HFSPlus, ApfsDriverLoader, OpenUsbKbDxe, OpenRuntime, AudioDxe, OpenCanopy
                     |____Input: KeyFiltering NO, KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
                     |____Output: ProvideConsoleGop YES, DirectGopCacheMode, ConsoleMode and Resolution left blank; the rest NO
                     |____Protocols: all NO
