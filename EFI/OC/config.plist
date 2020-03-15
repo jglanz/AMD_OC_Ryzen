@@ -93,7 +93,7 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
-				<string>SSDT-X570-NVMe-BXBR-BYD0-ANS1.aml</string>
+				<string>SSDT-X570-NVMe-ANS1-BXBR-BYD0.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -101,7 +101,7 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-X570-NVMe-BXBR-BYD1-ANS2.aml</string>
+				<string>SSDT-X570-NVMe-ANS2-BXBR-BYD1.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -109,7 +109,7 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-X570-NVMe-GPP2-ANS3+TB.aml</string>
+				<string>SSDT-X570-NVMe-ANS3-GPP2-withTB.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -117,7 +117,7 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
-				<string>SSDT-X570-NVMe-GPP0-ANS3-noTB.aml</string>
+				<string>SSDT-X570-NVMe-ANS3-GPP0-noTB.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
