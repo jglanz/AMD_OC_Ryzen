@@ -10,7 +10,7 @@ This repository will also attempt to keep up-to-date the basics of this EFI fold
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
-As of pre-release v057 (as of 3/14/20), OC has its own graphics menu system, named _OpenCanopy.efi_. See Section A5 (Driver section) for details.
+As of pre-release v057 (as of 3/15/20), OC has its own graphics menu system, named _OpenCanopy.efi_. See Section A5 (Driver section) for details.
 
 And while this repository is specific for the __ASRock X570 Creator__ motherboard, much will be found in common with other __X570__ motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the __config.plist__ file (ACPI section) before trying out. Later, change or remove them as you test your system.
 
