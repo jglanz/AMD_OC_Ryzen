@@ -24,11 +24,11 @@ OpenCore version numbers are not incremented for each minor adjustment, but incr
 
 ### 1. ACPI
 
-The first few files, those without a _-X570-_ prefix, are for setting up AGPM injector, and _EC_ with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the _-NVMe-_ files adjust the device names and correct internal drives appearing as external icons. The SSDTs _-BXBR_ and _-GP13_ rename the USB devices. 
+The first few files, those without a _-X570-_ prefix, are for setting up AGPM injector, and _EC_ with other power adjustments. The x-AmdTable are fixes found by CaseySJ to ASRock SSDT mistakes. Meanwhile, the _-NVMe-ANSx_ files adjust the device names and correct internal drives appearing as external icons. The SSDTs _-BXBR_ and _-GP13_ rename the USB devices. 
 
 The GPU SSDT files, such as _SSDT-X570-RX580-slot-1.aml_, primarily provide correct re-naming of the devices (although much is provided by WEG) and nice displays of the drivers within SystemInformaion/PCI on the Mac. Two of these do adjust the functioning of the PowerTables (Vega 56 and 64). These SSDT GPU files do not inject AGPM; that is provided through kext files described in the next section.
 
-The other two NVMe files listed as _GPP0-ANS3_ and _GPP2-ANS3_ are described below in section A6.
+There are 4 included SSDT-NVMe-ANSx-X files that simply rename ANSI devices and inject information into the System Information/PCI section. The most important role by changing the names for the devices, these files change the disk icons from external to internal icons on the desktop. The descriptions inside the files should be changed to reflect the brand and sizes of NVMe drives that you are using in your build. However, as these ANSI files are not essential for booting, they may be ignored. (Two of the NVMe files, _ANS3-GPP0-ANS3_ and _ANS3-GPP2_, are described below in section A6.)
 
 Finally, the _SSDT-X570-TB3-Builtin.aml_ file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testnig is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4), which was flashed the NVM 23. The SSDT for this is _SSDT-X570-Cr-TB3-GPP9-slot-4.aml_. While this file is included, it is disabled within the ACPI section of the __config.plist__ file. This SSDT injects the XHC device on the PCIe card as XHC1.
 
@@ -133,7 +133,7 @@ To summarize:
 + PCIe6 ( used ) + TB disabled --->  M2_2 will appear in BIOS
 - PCIe6 (empty) + TB disabled --->  M2_2 will appear in BIOS
 
-One other problem, now concerning the _M2_1_ slot, is seen depending upon the TB status: the _M2_1_ slot device is assigned to different devices. When TB is enabled, _M2_1_ is assigned to PCI0/GGP2; however, when TB is disabled, the _M2_1_ is assigned to PCI0/GPP0. This is why there are two different SSDT aml files for _M2_1_ (labelled as ANS3 in this repository), known as _SSDT-X570-NVMe-GPP0-ANS3-noTB.aml_ and _SSDT-X570-NVMe-GPP2-ANS3+TB.aml_. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
+One other problem, now concerning the _M2_1_ slot, is seen depending upon the TB status: the _M2_1_ slot device is assigned to different devices. When TB is enabled, _M2_1_ is assigned to PCI0/GGP2; however, when TB is disabled, the _M2_1_ is assigned to PCI0/GPP0. This is why there are two different SSDT aml files for _M2_1_ (labelled as ANS3 in this repository), known as _SSDT-X570-NVMe-ANS3-GPP0-noTB.aml_ and _SSDT-X570-NVMe-ANS3-GPP2-withTB.aml_. Both can actually be left enabled within OpenCore and either one will activate based on whether you have TB enabled or disabled.
 
 
 ### 7. BIOS ROM
