@@ -145,6 +145,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Thunderbolt - Built In (original)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-X570-Cr-TB3-basic.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Thunderbolt - Built In</string>
 				<key>Enabled</key>
 				<true/>
@@ -158,22 +166,6 @@
 				<false/>
 				<key>Path</key>
 				<string>SSDT-X570-Cr-TB3-GPP9-TR-slot-4.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>For Thunderbolt Local Node Debugging; used with ACPIDebug.kext</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-RMDT.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Fix Shutdown from USB Problem; req Patch</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-FixShutdown-USB.aml</string>
 			</dict>
 		</array>
 		<key>Block</key>
@@ -257,40 +249,6 @@
 				<key>Replace</key>
 				<data>
 				WEwwOA==
-				</data>
-				<key>ReplaceMask</key>
-				<data>
-				</data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>FixShutdown-USB-SSDT Patch</string>
-				<key>Count</key>
-				<integer>1</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				X1BUUw==
-				</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data>
-				</data>
-				<key>OemTableId</key>
-				<data>
-				</data>
-				<key>Replace</key>
-				<data>
-				WlBUUw==
 				</data>
 				<key>ReplaceMask</key>
 				<data>
@@ -2242,6 +2200,7 @@
 			<string>OpenUsbKbDxe.efi</string>
 			<string>AudioDxe.efi</string>
 			<string>OpenCanopy.efi</string>
+			<string>#NdkBootPicker.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
