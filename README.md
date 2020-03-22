@@ -64,7 +64,7 @@ MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro
 
 [USBWakeFixup](https://github.com/osy86/USBWakeFixup) is an attempt to fix wake issues. A modification to EC.aml was made to work in conjunction with this kext.
 
-[SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) is useful for providing CPU temperature and frequency information. (ThunderboltReset was removed on 3/10/20; it was designed for Alpine Ridge and the mobo uses Titan Ridge; NVMeFix was not properly loading and was removed from the repository on 3/21/20.)
+[SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) is useful for providing CPU temperature and frequency information. Presently, it is at v034. Please refer to its GitHub for the latest updates. Also included is the associated AMD Power Gadget app which presents the data. (ThunderboltReset was removed on 3/10/20; it was designed for Alpine Ridge and the mobo uses Titan Ridge; NVMeFix was not properly loading and was removed from the repository on 3/21/20.)
 
 The above kext files may be updated independent of this repository using [Hackintool](https://www.insanelymac.com/forum/topic/335018-hackintool-v286/), [Kext Updater](https://bitbucket.org/profdrluigi/kextupdater/downloads/) or [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases). However, the final kext group described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
 
