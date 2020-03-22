@@ -164,7 +164,7 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 | CSM                |  Disabled    |
 | Above 4G decoding  |  Enabled     |
 
-If you're stuck at the Apple progress bar, chances are you're having an issue with _npci=0x2000_ and _Above 4G decoding_. You can only use one or the other. That is, if _Above 4G decoding_ is Enabled, you don't want to use _npci=0x2000_ in the boot argument under NVRAM in your config.plist file. On the other hand, if _Above 4G decoding_ is Disabled, you must include _npci=0x2000_ in the boot argument. If you use any other setting, you probably won't successfully boot. The recommended default is to leave _Above 4G decoding_ Enabled and not use _npci=0x2000_.
+If you're stuck at the Apple progress bar, chances are you're having an issue with _npci=0x2000_ and _Above 4G decoding_. You can only use one or the other. That is, if _Above 4G decoding_ is Enabled, you don't want to use _npci=0x2000_ in the boot argument under NVRAM in your __config.plist__ file. On the other hand, if _Above 4G decoding_ is Disabled, you must include _npci=0x2000_ in the boot argument. If you use any other setting, you probably won't successfully boot. The recommended default is to leave _Above 4G decoding_ Enabled and not use _npci=0x2000_.
 
 
 ### 9. SMBIOS - How to Easily Update in OC
