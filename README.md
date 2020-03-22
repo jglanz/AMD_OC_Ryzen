@@ -6,7 +6,7 @@ although provisions are available for running _MacPro7,1_ which will be describe
 
 This repository is only designed for OpenCore bootloader. __OpenCore__ (OC) is best updated via Pavo's [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases) app. Accordingly, once you have a working EFI boot folder based on this repository, you can update various components of it as you see fit based on OCBuilder. But do be careful not to over write files or folders unique to this build. If updated, please study the Docs to see if the structure of the __config.plist__ file needs to be changed (this respository will attempt to be current with the most stable release). Keep in mind that OpenCore is evolving, and consequently, new versions can substantially effect the overall structure and functioning of the presently used __config.plist__ file.
 
-This repository will also attempt to keep up-to-date the basics of this EFI folder unique to this build (in particular, the ACPI and Kexts folders). This respository assumes you are fine tuning an established build. If you are looking for details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your system and other related matters, please see the AMD-OSX/AMD-Vanilla [repository](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) and especially, the AMD section in the very detailed [OpenCore-Guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/).
+This repository will also attempt to keep up-to-date the basics of this EFI folder unique to this build (in particular, the ACPI and Kexts folders). This respository assumes you are fine tuning an established build. If you are looking for details regarding how to setup OpenCore, how to create a bootable installation, how to trouble shoot errors, how to optimize your system and other related matters, please see the AMD-OSX/AMD-Vanilla [repository](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) and especially, the AMD section in the very detailed [OpenCore-Guide](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/). Having said that, if you're stuck at the Apple progress bar, chances are you're having an issue with _npci=0x2000_ and _Above 4G decoding_; see Section A8 below.
 
 The EFI folder in this repository should be placed on the EFI partition of your boot drive (see Usage and Structure information below).
 
@@ -164,6 +164,7 @@ Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes w
 | CSM                |  Disabled    |
 | Above 4G decoding  |  Enabled     |
 
+If you're stuck at the Apple progress bar, chances are you're having an issue with _npci=0x2000_ and _Above 4G decoding_. You can only use one or the other. That is, if _Above 4G decoding_ is Enabled, you don't want to use _npci=0x2000_ in the boot argument under NVRAM in your config.plist file. On the other hand, if _Above 4G decoding_ is Disabled, you must include _npci=0x2000_ in the boot argument. If you use any other setting, you probably won't successfully boot. The recommended default is to leave _Above 4G decoding_ Enabled and not use _npci=0x2000_.
 
 
 ### 9. SMBIOS - How to Easily Update in OC
