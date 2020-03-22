@@ -119,7 +119,7 @@ Other, potentially useful drivers include OpenUsbKbDxe, ExFatDxe and OpenCanopy.
 
 VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the __config.plist__ as needed.
 
-Note: when a driver listing is preceeded by the _#_ symbol, the driver entry is disabled. To activate, remove this symbol. An example is _NdkBootPicker.efi_, which is included as of 3/21/20, but disabled. If you wish to use, then remove the symbol, but place one in front of _OpenCanopy.efi_ to disable that menu system. (All drivers are compiled at the same time, so this respository will work.)
+Note: when a driver listing is preceeded by the _#_ symbol, the driver entry is disabled. To activate, remove this symbol. An example would be _#NdkBootPicker.efi_. If you wish to use it instead of _OpenCanopy.efi_, then remove the symbol in front of _NdkBootPicker.efi_, but place one in front of _#OpenCanopy.efi_ to disable that menu system.
 
 
 ### 6. Problems with TB staus and M2_1 & M2_2 slots (AKA 'disapparing drives')
@@ -284,7 +284,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
             |_____UEFI
                     |____Audio: AudioCodec 0, AudioDevice (blank), AudioOut 0, AudioSupport NO, MinimumVolume 10, PlayChime NO, VolumeAmplifier 15
                     |____ConnectDrivers: YES
-                    |____Drivers: HFSPlus, ApfsDriverLoader, OpenUsbKbDxe, OpenRuntime, AudioDxe, OpenCanop, #NdkBootPicker
+                    |____Drivers: HFSPlus, ApfsDriverLoader, OpenUsbKbDxe, OpenRuntime, AudioDxe, OpenCanop
                     |____Input: KeyFiltering NO, KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
                     |____Output: ProvideConsoleGop YES, DirectGopCacheMode, ConsoleMode and Resolution left blank; the rest NO
                     |____Protocols: all NO
