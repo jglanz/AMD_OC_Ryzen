@@ -16,7 +16,7 @@ And while this repository is specific for the __ASRock X570 Creator__ motherboar
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
-***v057 - 3/15/2020***
+***v057 - 3/20/2020***
 
 
 
@@ -118,6 +118,8 @@ Only a few drivers are required with OpenCore: ApfsDriverLoader and OpenRuntime.
 Other, potentially useful drivers include OpenUsbKbDxe, ExFatDxe and OpenCanopy. The latter activates a graphical user interface (menu system). OpenCanopy is turned on by default. To change, adjust the __config.plist__ file: see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
 
 VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the __config.plist__ as needed.
+
+Note: when a driver listing is preceeded by the _#_ symbol, the driver entry is disabled. To activate, remove this symbol. An example is _NdkBootPicker.efi_, which is included as of 3/21/20, but disabled. If you wish to use, then remove the symbol, but place one in front of _OpenCanopy.efi_ to disable that menu system. (All drivers are compiled at the same time, so this respository will work.)
 
 
 ### 6. Problems with TB staus and M2_1 & M2_2 slots (AKA 'disapparing drives')
@@ -282,7 +284,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
             |_____UEFI
                     |____Audio: AudioCodec 0, AudioDevice (blank), AudioOut 0, AudioSupport NO, MinimumVolume 10, PlayChime NO, VolumeAmplifier 15
                     |____ConnectDrivers: YES
-                    |____Drivers: HFSPlus, ApfsDriverLoader, OpenUsbKbDxe, OpenRuntime, AudioDxe, OpenCanopy
+                    |____Drivers: HFSPlus, ApfsDriverLoader, OpenUsbKbDxe, OpenRuntime, AudioDxe, OpenCanop, #NdkBootPicker
                     |____Input: KeyFiltering NO, KeyForgetThreshold 5, KeyMergeThreshold 2, KeySupport YES, KeySupportMode Auto, KeySwap NO, PointerSupport NO, PointerSupportMode (blank), TimerResolution 50000
                     |____Output: ProvideConsoleGop YES, DirectGopCacheMode, ConsoleMode and Resolution left blank; the rest NO
                     |____Protocols: all NO
