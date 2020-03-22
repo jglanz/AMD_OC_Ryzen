@@ -32,9 +32,9 @@ There are 3 included SSDT-NVMe-ANSx-X files which rename NVMe M2_x devices and i
 
 The two _SSDT-NVMe-ANS1-X_ files describe the drive located at M2_1; and the _SSDT-NVMe-ANS2-X_ file describes the drive at M2_2 (M2_x issues are discussed below in section A6).
 
-Finally, the _SSDT-X570-TB3-Builtin.aml_ file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testnig is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4), which was flashed the NVM 23. The SSDT for this is _SSDT-X570-Cr-TB3-GPP9-slot-4.aml_. While this file is included, it is disabled within the ACPI section of the __config.plist__ file. This SSDT injects the XHC device on the PCIe card as XHC1.
+Finally, the _SSDT-X570-TB3-Builtin.aml_ file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testing is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4), which was flashed firmware NVM 23. The SSDT for this is _SSDT-X570-Cr-TB3-GPP9-slot-4.aml_. While this file is included, it is disabled within the ACPI section of the __config.plist__ file. This SSDT injects the XHC device on the PCIe card as XHC1.
 
-As of 3/8/20, there is discussion of how _ThunderboltDROM_ and _ThunderboltConfig_ seem to significant affect TB performance. In adjusting the SSDT files, the built-in TB seems to respond well to this injection (SSP1 and SSP2 are assigned to ports 3 and 4, respectively; see image below). SSP1 and SSP2 appear with or without a USB-C drive connected. When the drive is connected at boot, it mounts on the desktop (hot-plug still an issue).
+As of 3/8/20, there is discussion of how _ThunderboltDROM_ and _ThunderboltConfig_ seem to significant affect TB performance (these files should be adjusted during the week of 3/23). In adjusting the SSDT files, the built-in TB seems to respond well to this injection (SSP1 and SSP2 are assigned to ports 3 and 4, respectively; see image below). SSP1 and SSP2 appear with or without a USB-C drive connected. When the drive is connected at boot, it mounts on the desktop (hot-plug still an issue).
 
 Using a similar _ThunderboltConfig_ for the flashed TB3 PCIe4 card, does not yet give the same result. So again, TB is a work in progress.
 
@@ -47,7 +47,7 @@ On board TB3, using _SSDT-X570-TB3-Builtin.aml_:
 
 The contents of the Kexts folder can be broken down into various groups. 
 
-First are the AGPMInjector kexts, which were made using Pavo's [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) app. A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the __config.plist__ file. Example (shown below): _SSDT-X570-RX580-slot-1.aml_ and _AGPMInjector-iMacPro1,1-RX580.kext_ both enabled as a pair in the __config.plist__ file.
+First are the AGPMInjector kexts, which were made using Pavo's [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) app. A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the __config.plist__ file. Default (shown below): _SSDT-X570-RX580-slot-1.aml_ and _AGPMInjector-iMacPro1,1-RX580.kext_ both enabled as a pair in the __config.plist__ file. If you're using a different GPU, then choose among those supplied in the ACPI and Kexts folders, updating the appropriates sections in the __config.plist__ file.
 
 SSDT-RX580:
 ![Test Image 1](Images/SSDT-RX580.jpg)
@@ -64,7 +64,7 @@ MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro
 
 [USBWakeFixup](https://github.com/osy86/USBWakeFixup) is an attempt to fix wake issues. A modification to EC.aml was made to work in conjunction with this kext.
 
-[NVMeFix](https://github.com/acidanthera/NVMeFix) and [SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) are useful for adjusting the functioning of NVMe drives, setting up power for TB3, and providing CPU temperature and frequency information. ACPIDebug (and the companion SSDT-RMDT.aml file) will only be used to debug and trouble shoot TB3 SSDTs at a future date. Both of these files should presently be disabled, or, if you choose, deleted. (ThunderboltReset was removed on 3/10/20; it was designed for Alpine Ridge and the mobo uses Titan Ridge.)
+[SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) is useful for providing CPU temperature and frequency information. (ThunderboltReset was removed on 3/10/20; it was designed for Alpine Ridge and the mobo uses Titan Ridge; NVMeFix was not properly loading and was removed from the repository on 3/21/20.)
 
 The above kext files may be updated independent of this repository using [Hackintool](https://www.insanelymac.com/forum/topic/335018-hackintool-v286/), [Kext Updater](https://bitbucket.org/profdrluigi/kextupdater/downloads/) or [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases). However, the final kext group described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
 
@@ -230,8 +230,10 @@ The images below show the steps. When editing the __config.plist__ file, the rec
                |_____OpenCore.efi
                |
                |_____Resources
-               |       |_____Audio
-               |                |____ various WAV files
+               |       |_____Audio___ various WAV files
+               |       |_____Font____ Font.bin and Font.png, for menu system
+               |       |_____Image___ various files for menu system
+               |
                |_____Tools
                |       |______OpenShell.efi, plus others (not discussed)
                |_____Utilities
