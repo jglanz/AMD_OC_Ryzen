@@ -40,7 +40,7 @@ Using a similar _ThunderboltConfig_ for the flashed TB3 PCIe4 card, does not yet
 
 On board TB3, using _SSDT-X570-TB3-Builtin.aml_:
 
-![Test Image 10](Images/TB3-Builtin.jpg)
+![Test Image 1](Images/TB3-Builtin.jpg)
 
 
 ### 2. Kexts
@@ -50,10 +50,10 @@ The contents of the Kexts folder can be broken down into various groups.
 First are the AGPMInjector kexts, which were made using Pavo's [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) app. A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the __config.plist__ file. Default (shown below): _SSDT-X570-RX580-slot-1.aml_ and _AGPMInjector-iMacPro1,1-RX580.kext_ both enabled as a pair in the __config.plist__ file. If you're using a different GPU, then choose among those supplied in the ACPI and Kexts folders, updating the appropriates sections in the __config.plist__ file.
 
 SSDT-RX580:
-![Test Image 1](Images/SSDT-RX580.jpg)
+![Test Image 2](Images/SSDT-RX580.jpg)
 
 AGPMInjector:
-![Test Image 2](Images/AGPMInj-RX580.jpg)
+![Test Image 3](Images/AGPMInj-RX580.jpg)
 
 
 Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described in [Swapping BT Module](https://forum.amd-osx.com/viewtopic.php?p=53060#p53060)), you'll want all of these enabled within the __config.plist__ file. On the other hand, if you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (with a Broadcom 94360CD), then most of these kext files are optional. A few other files will vary depending on whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). Those changes will be described below.
@@ -76,7 +76,7 @@ Together, these SSDT and kext files properly inject the USB ports and, in the ca
 
 For a complete USB port description, see the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout. See the Hackintools image for USB details below. This image reflects a swapped BT build (which is why there is a device at XHCI/PRT6), as well as a second TB3 PCIe card in slot PCIe4 with an assigned XHC of XHC4. The internal TB3 is assigned XHC5.
 
-![Test Image 8](Images/X570-Hackintool-PCIeTB.jpg)
+![Test Image 4](Images/X570-Hackintol-USB.jpg)
 
 
 ### 3. BT Settings
@@ -98,17 +98,20 @@ SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1) - 
 The images below show the 2 sections, the ACPI and the Kernel sections, in the __config.plist__ file, where these files are to be enabled or disabled. (Note: XHC was renamed to XHCI on 3/7/20 with changes to various other files.)
 
 ACPI section:
-![Test Image 3](Images/SSDT-BT-Int-PCIe.jpg)
+![Test Image 5](Images/SSDT-BT-Int-PCIe.jpg)
+
+DeviceProperties section:
+![Test Image 6](Images/X570-DP-BT-WiFi.jpg)
 
 Kernel section:
-![Test Image 4](Images/USBPorts-X570.jpg)
+![Test Image 7](Images/X570-Kexts-BT.jpg)
 
 
 ### 4. System Information / PCI
 
 This section shows the current status of the System Information section in Mac OS. The image shown represents a swapped BT/Wifi card and an extra TB3 PCIe card at PCIe. The TB3 USB devices are being injected within the DeviceProperties section of the __config.plist__ file, while the remaining devices are re-named within SSDT files.
 
-![Test Image 9](Images/X570-PCI-Info-PCIeTB.jpg)
+![Test Image 8](Images/X570-PCI-Info-PCIeTB.jpg)
 
 
 ### 5. Drivers
@@ -146,7 +149,7 @@ The _SSDT-NVMe-ANS1-X_ files describe the drive located at M2_1; the _SSDT-NVMe-
 
 Working within a PC environment means using BIOS and the manufacturer's typcial boot methods, which includes their logo. If we'd like a more Mac-like tone, what about changing the usual manufacturer's boot logo to one that is more Mac-like? This can be done through a modified BIOS. The BIOS included in this repository (_X570CTR2-10-mod.rom.zip_) is the latest v2.10 BIOS but contains a modified boot logo as shown below. 
 
-![Test Image 5](Images/AppleLogo_small.jpg)
+![Test Image 9](Images/AppleLogo_small.jpg)
 
 Of course, to use you need to follow the X570 Creator manual in how to flash a BIOS to the X570 Creator motherboard. If you stored any settings for v2.10 on a drive, you can re-load these settings once you've flashed this BIOS (a settings file is also included in this repository). If you didn't save your settings externally, you'll have to re-enter all of your settings again: so prepare things ahead of time to make flashing easier. (When you flash a different version of a BIOS, settings cannot be re-loaded from another version; however, when staying within a version, you can re-load settings.)
 
@@ -184,9 +187,9 @@ The images below show the steps. When editing the __config.plist__ file, the rec
 - Highlight and click into the remaining section marked _PlatformInfo 2_, editing out the space and 2 (" 2").
 - Then save the file.
 
-![Test Image 6](Images/OC_copy.jpg)
+![Test Image 10](Images/OC_copy.jpg)
 
-![Test Image 7](Images/OC_paste.jpg)
+![Test Image 11](Images/OC_paste.jpg)
 
 
 
