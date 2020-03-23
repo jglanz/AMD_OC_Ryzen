@@ -68,13 +68,13 @@ MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro
 
 The above kext files may be updated independent of this repository using [Hackintool](https://www.insanelymac.com/forum/topic/335018-hackintool-v286/), [Kext Updater](https://bitbucket.org/profdrluigi/kextupdater/downloads/) or [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases). However, the final kext group described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
 
-This final group consists of two USBPort injector kext files specific for this motherboard: _USBPorts-X570-ASRock-CR_ and _USBPorts-X570-ASRock-CR-PCIe_BT_. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the __config.plist__ file is for PCIeBT, not SBT, builds. 
+This final group consists of two USBPort injector kext files specific for this motherboard: _USBPorts-X570-ASRock-CR-Int_BT_ and _USBPorts-X570-ASRock-CR-PCIe_BT_. The former is for SBT builds; the latter, for PCIeBT builds. The repository default within the __config.plist__ file is for PCIeBT, not SBT, builds. 
 
-Use one of these two USBPort injector kext files in parallel one of two ACPI files: SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI and SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the __config.plist__ file. This pairing is re-explained below in section A3.
+Use one of these two USBPort injector kext files in parallel one of two ACPI files: _SSDT-X570-BXBR_BYUP_BYD8_XHCI-Int_BT_ and _SSDT-X570-BXBR_BYUP_BYD8_XHCI-PCIe_BT_. Again, the former is for SBT builds and by default is disabled; the latter is for PCIeBT builds and is by default enabled in the __config.plist__ file. This pairing is re-explained below in section A3.
 
-Together, these SSDT and kext files properly inject the USB ports and, in the case of the PCIeBT version, disable the internal Intel BT device (removing it's USB power supply). By removing the internal BT/WiFi device, the BT add-on card (ideally located at slot-5) will have less interference, and yet, if you use the computer to boot into Windows, the Internal device will work again. Whereas, if you use the SBT device, either MacOS or Windows will use the same device and it's USB power shouldn't be removed. This is why there are 2 sets of USBPort BT injector kexts.
+Together, these SSDT and kext files properly inject the USB ports and, in the case of the PCIeBT version, disable the internal Intel BT device (removing it's USB power supply). By removing the internal BT/WiFi device, the BT add-on card (ideally located at slot-5; slot-3 works too) will have less interference, and yet, if you use the computer to boot into Windows, the Internal device will work again. Whereas, if you use the SBT device, either MacOS or Windows will use the same device and it's USB power shouldn't be removed. This is why there are 2 sets of USBPort BT injector kexts. To further isolate the add-on PCIe BT/WiFi card, it is best to also Disable BT and WAN in BIOS.
 
-For a complete USB port description, see the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout. See the Hackintools image for USB details below. This image reflects a swapped BT build (which is why there is a device at XHCI/PRT6), as well as a second TB3 PCIe card in slot PCIe4 with an assigned XHC of XHC1. The internal TB3 is assigned XHC5.
+For a complete USB port description, see the included Images folder for JPGs of the main mobo layout and the rear panel USB/Internal USB layout. See the Hackintools image for USB details below. This image reflects a swapped BT build (which is why there is a device at XHCI/PRT6), as well as a second TB3 PCIe card in slot PCIe4 with an assigned XHC of XHC4. The internal TB3 is assigned XHC5.
 
 ![Test Image 8](Images/X570-Hackintool-PCIeTB.jpg)
 
@@ -85,20 +85,20 @@ To clarify the above description, there are 2 sets of ACPI and kext files that y
 
 SET 1. SBT - Internal swapped BT, enable following (but disable those in SET 2):
 
-    A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI.aml
+    A. SSDT-X570-BXBR_BYUP_BYD8_XHCI-Int_BT.aml
 
-    B. USBPorts-X570-ASRock-CR.kext (injects PRT6 in XHCI, which supplies swapped BT/WiFi device)
+    B. USBPorts-X570-ASRock-CR-Int_BT.kext (injects PRT6 in XHCI, which supplies swapped BT/WiFi device)
 
 SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1) - __DEFAULT__:
 
-    A. SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT.aml
+    A. SSDT-X570-BXBR_BYUP_BYD8_XHCI-PCIe_BT.aml
 
     B. USBPorts-X570-ASRock-CR-PCIe_BT.kext (removes PRT6 from XHCI, which supplies internal BT/WiFi device)
     
 The images below show the 2 sections, the ACPI and the Kernel sections, in the __config.plist__ file, where these files are to be enabled or disabled. (Note: XHC was renamed to XHCI on 3/7/20 with changes to various other files.)
 
 ACPI section:
-![Test Image 3](Images/ACPI-X570X-USB-BT.jpg)
+![Test Image 3](Images/SSDT-BT-Int-PCIe.jpg)
 
 Kernel section:
 ![Test Image 4](Images/USBPorts-X570.jpg)
