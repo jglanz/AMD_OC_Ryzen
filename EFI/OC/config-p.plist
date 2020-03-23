@@ -436,6 +436,54 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
+				<string>AppleMCEReporterDisabler.kext</string>
+				<key>Comment</key>
+				<string>AppleMCEReporter disabler; req for Catalina</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>USBWakeFixup.kext</string>
+				<key>Comment</key>
+				<string>USB patches to fix wake from sleep</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/USBWakeFixup</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>MacProMemoryNotificationDisabler.kext</string>
+				<key>Comment</key>
+				<string>FIx Memory Slot Problems with SMBIOS MacPro7,1 for 10.15</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/MacProMemoryNotificationDisabler</string>
+				<key>MaxKernel</key>
+				<string>19.99.99</string>
+				<key>MinKernel</key>
+				<string>19.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
 				<string>SMCAMDProcessor.kext</string>
 				<key>Comment</key>
 				<string>Temp Monitor patches</string>
@@ -484,13 +532,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>USBWakeFixup.kext</string>
+				<string>AppleALC.kext</string>
 				<key>Comment</key>
-				<string>USB patches to fix wake from sleep</string>
+				<string>Audio patches</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/USBWakeFixup</string>
+				<string>Contents/MacOS/AppleALC</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -500,7 +548,7 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>USBPorts-X570-ASRock-CR.kext</string>
+				<string>USBPorts-X570-ASRock-CR-Int_BT.kext</string>
 				<key>Comment</key>
 				<string>Inject USB Ports; Internal BT/WiFi</string>
 				<key>Enabled</key>
@@ -518,39 +566,7 @@
 				<key>BundlePath</key>
 				<string>USBPorts-X570-ASRock-CR-PCIe_BT.kext</string>
 				<key>Comment</key>
-				<string>Inject USB Ports; PCIe BT/WiFi</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>AppleALC.kext</string>
-				<key>Comment</key>
-				<string>Audio patches</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/AppleALC</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>AppleMCEReporterDisabler.kext</string>
-				<key>Comment</key>
-				<string>AppleMCEReporter disabler; req for Catalina</string>
+				<string>Inject USB Ports; PCIe BT/WiFi; cancel XHCI-PRT6</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -582,7 +598,7 @@
 				<key>BundlePath</key>
 				<string>AirportBrcmFixup.kext</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportBrcmFixup</string>
 				<key>MaxKernel</key>
@@ -636,17 +652,17 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>MacProMemoryNotificationDisabler.kext</string>
+				<string>BT4LEContinuityFixup.kext</string>
 				<key>Comment</key>
-				<string>FIx Memory Slot Problems with SMBIOS MacPro7,1 for 10.15</string>
+				<string></string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/MacProMemoryNotificationDisabler</string>
+				<string>Contents/MacOS/BT4LEContinuityFixup</string>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string></string>
 				<key>MinKernel</key>
-				<string>19.0.0</string>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
