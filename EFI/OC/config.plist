@@ -56,27 +56,35 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Re-name USB devices; internal BT/WiFi</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Re-name USB devices; PCIe External BT/WiFi</string>
+				<string>Re-name XHC2 USB devices</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-X570-BXBR_BYUP_BYD8_XHC2-XHCI-PCIe_BT.aml</string>
+				<string>SSDT-X570-BXBR_BYUP_BYD8_XHC2.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Re-name USB devices</string>
+				<string>Re-name XHC3 USB devices</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
 				<string>SSDT-X570-GP13_XHC3.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Re-name XHCI USB devices; internal BT/WiFi</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-X570-BXBR_BYUP_BYD8_XHCI-Int_BT.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Re-name XHCI USB devices; PCIe BT/WiFi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-X570-BXBR_BYUP_BYD8_XHCI-PCIe_BT.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -348,11 +356,21 @@
 			<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)/Pci(0x7,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>Slot 5</string>
+				<string>Slot-5</string>
+				<key>device-id</key>
+				<data>
+				oEMAAA==
+				</data>
 				<key>device_type</key>
-				<string>Network controller</string>
+				<string>Network BT / Wifi Controller</string>
 				<key>model</key>
-				<string>Broadcom 94360 Wireless Controller</string>
+				<string>BCM4360 802.11ac Wireless Network Adapter</string>
+				<key>name</key>
+				<string>Fenvi FV-T919</string>
+				<key>vendor-id</key>
+				<data>
+				5BQAAA==
+				</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x4)</key>
 			<dict>
