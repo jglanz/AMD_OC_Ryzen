@@ -18,6 +18,7 @@ OpenCore version numbers are not incremented for each minor adjustment, but incr
 
 ***v057 - 3/20/2020***
 
+***BT/WiFi Updates - 3/23/2020***
 
 
 ## A. Contents
@@ -156,7 +157,7 @@ Of course, to use you need to follow the X570 Creator manual in how to flash a B
 
 ### 8. BIOS Settings
 
-If you load the included file, _Auto+TB-CSM.bin_, from within BIOS v2.10 (see motherboard manual on how to do this), you will have the basic optimal settings for this motherboard with TB enabled. The "Auto" portion in the file name refers to the fact that XMP has not been set, but left on Auto. Do note that this v2.10 settings file has manually reduced fan speeds; please adjust as necessary. Also, please confirm your boot order is correct under the BIOS Boot menu item before re-saving the settings.
+If you load the included file, _Auto+TB-CSM.bin_, from within BIOS v2.10 (see motherboard manual on how to do this), you will have the basic optimal settings for this motherboard with TB enabled. The "Auto" portion in the file name refers to the fact that XMP has not been set, but left on Auto. Do note that this v2.10 settings file has manually reduced fan speeds; please adjust as necessary. Also, please confirm your boot order is correct under the BIOS Boot menu item before re-saving the settings. There is also a _Auto+TB-CSM-BT.bin_ file. This settings file is same as the other settings file except is also Disables BT and WAN within BIOS.
 
 Also, on the Advanced\AMD PBS page, in addition to enabling TB, the PCIe lanes were set to Gen3. Reportedly, the Gen3 setting is better for maxmizing performance from currently available GPUs. Experiment with the Gen3 vs Auto setting and see what works best for your build. Except for these discussed items, all other BIOS settings are default.
 
