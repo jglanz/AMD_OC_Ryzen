@@ -160,7 +160,15 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Thunderbolt - add-on card - Titan Ridge</string>
+				<string>Thunderbolt - add-on card - Alpine Ridge, slot 4 (PCIe4)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-X570-Cr-TB3-GPP9-AR-slot-4.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Thunderbolt - add-on card - Titan Ridge, slot 4 (PCIe4)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
