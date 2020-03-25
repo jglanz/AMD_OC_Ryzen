@@ -121,9 +121,9 @@ Only a few drivers are required with OpenCore: ApfsDriverLoader and OpenRuntime.
 
 Other, potentially useful drivers include OpenUsbKbDxe, ExFatDxe and OpenCanopy. The latter activates a graphical user interface (menu system). OpenCanopy is turned on by default. To change, adjust the __config.plist__ file: see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
 
-VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will be discussed. If you wish to use FileVault, then read the documentation and adjust the __config.plist__ as needed.
+VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will not be discussed. If you wish to use FileVault, please read the documentation and adjust the __config.plist__ file as needed.
 
-Note: when a driver listing is preceeded by the _#_ symbol, the driver entry is disabled. To activate, remove this symbol. An example would be _#NdkBootPicker.efi_. If you wish to use it instead of _OpenCanopy.efi_, then remove the symbol in front of _NdkBootPicker.efi_, but place one in front of _#OpenCanopy.efi_ to disable that menu system.
+Note: when a driver listing is preceeded by the _#_ symbol, the driver entry is disabled. To activate, remove this symbol. An example would be _#NdkBootPicker.efi_. If you wish to use it instead of _OpenCanopy.efi_, then remove the _#_ symbol in front of _NdkBootPicker.efi_, and place one in front of _#OpenCanopy.efi_ to disable that menu system.
 
 
 ### 6. Problems with TB staus and M2_1 & M2_2 slots (AKA 'disapparing drives')
