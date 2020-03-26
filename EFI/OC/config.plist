@@ -144,6 +144,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Apply Power to TB Root - Built-in</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-X570-TB-PWR-Builtin.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Thunderbolt - Built In (original)</string>
 				<key>Enabled</key>
 				<false/>
