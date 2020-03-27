@@ -468,22 +468,6 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>USBWakeFixup.kext</string>
-				<key>Comment</key>
-				<string>USB patches to fix wake from sleep</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/USBWakeFixup</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
 				<string>MacProMemoryNotificationDisabler.kext</string>
 				<key>Comment</key>
 				<string>FIx Memory Slot Problems with SMBIOS MacPro7,1 for 10.15</string>
@@ -1135,7 +1119,7 @@
 				<true/>
 				<key>Find</key>
 				<data>
-				MduAPQAAAAAGdVw=
+				MduAPQAAAAAGdQA=
 				</data>
 				<key>Identifier</key>
 				<string>kernel</string>
@@ -1143,7 +1127,7 @@
 				<integer>0</integer>
 				<key>Mask</key>
 				<data>
-				/////wAAAP////8=
+				/////wAAAP///wA=
 				</data>
 				<key>MaxKernel</key>
 				<string>19.99.99</string>
@@ -1922,7 +1906,7 @@
 			<key>ExposeSensitiveData</key>
 			<integer>6</integer>
 			<key>HaltLevel</key>
-			<real>2147483648</real>
+			<integer>2147483648</integer>
 			<key>ScanPolicy</key>
 			<integer>2820355</integer>
 			<key>Vault</key>
