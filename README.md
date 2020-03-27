@@ -20,6 +20,8 @@ OpenCore version numbers are not incremented for each minor adjustment, but incr
 
 ***BT/WiFi Updates - 3/23/2020***
 
+***bug fixes/correction of Catalina 10.15.4 patch - 3/27/2020***
+
 
 ## A. Contents
 
@@ -63,7 +65,7 @@ Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler
 
 MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro7,1_ (which requires Catalina).
 
-[USBWakeFixup](https://github.com/osy86/USBWakeFixup) is an attempt to fix wake issues. A modification to EC.aml was made to work in conjunction with this kext.
+[USBWakeFixup](https://github.com/osy86/USBWakeFixup) is an attempt to fix wake issues. A modification to EC.aml was made to work in conjunction with this kext. EDIT (3/27/20): due to issues with ____PRW___ (included in EC.aml) not properly attaching to a device, both this portion of EC.aml was removed along with USBWakeFixup.kext. Until the matter can be properly investigated, it is recommended to disable or remove the kext file as well as update the EC.aml file.
 
 [SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) is useful for providing CPU temperature and frequency information. Presently, it is at v034. Please refer to its GitHub for the latest updates. Also included is the associated AMD Power Gadget app which presents the data. (ThunderboltReset was removed on 3/10/20; it was designed for Alpine Ridge and the mobo uses Titan Ridge; NVMeFix was not properly loading and was removed from the repository on 3/21/20.)
 
