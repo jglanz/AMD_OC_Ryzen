@@ -2181,7 +2181,7 @@
 			<key>PlayChime</key>
 			<false/>
 			<key>VolumeAmplifier</key>
-			<integer>15</integer>
+			<integer>30</integer>
 		</dict>
 		<key>ConnectDrivers</key>
 		<true/>
